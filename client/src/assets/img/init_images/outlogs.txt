@@ -1,0 +1,61 @@
+#tokyo skyline swallowed by a huge thunderstorm, explosions in sky, white lightning, foggy skies, raining, sketch, high detail, -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -n6 -o=./outputs/kyotoscapes/base3
+>> This input is larger than your defaults. If you run out of memory, please use a smaller image.
+>> loaded input image of size 1024x960 from ./init_images/tokyoscapes/base3a.png
+>> This input is larger than your defaults. If you run out of memory, please use a smaller image.
+>> sampler 'KSampler' is not yet supported. Using DDIM sampler
+Generating:   0%|                                                                                                                                                                                                     | 0/6 [00:00<?, ?it/s]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:51<00:00,  1.29s/it]
+Generating:  17%|███████████████████████████████▌                                                                                                                                                             | 1/6 [00:52<04:23, 52.65s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:58<00:00,  1.45s/it]
+Generating:  33%|███████████████████████████████████████████████████████████████                                                                                                                              | 2/6 [01:51<03:46, 56.54s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:51<00:00,  1.29s/it]
+Generating:  50%|██████████████████████████████████████████████████████████████████████████████████████████████▌                                                                                              | 3/6 [02:44<02:44, 54.76s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:58<00:00,  1.45s/it]
+Generating:  67%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                                                               | 4/6 [03:43<01:53, 56.56s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:51<00:00,  1.29s/it]
+Generating:  83%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                               | 5/6 [04:36<00:55, 55.14s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:58<00:00,  1.45s/it]
+Generating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [05:35<00:00, 55.94s/it]
+>> Usage stats:
+>>   6 image(s) generated in 336.22s
+>>   Max VRAM used for this generation: 5.75G. Current VRAM utilization:2.22G
+>>   Max VRAM used since script start:  5.75G
+Outputs:
+[25] ./outputs/kyotoscapes/base3\000005.521746823.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S521746823
+[26] ./outputs/kyotoscapes/base3\000005.687292623.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S687292623
+[27] ./outputs/kyotoscapes/base3\000005.235335149.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S235335149
+[28] ./outputs/kyotoscapes/base3\000005.3433660051.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S3433660051
+[29] ./outputs/kyotoscapes/base3\000005.3745393827.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S3745393827
+[30] ./outputs/kyotoscapes/base3\000005.1259618871.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S1259618871
+
+#tokyo skyline swallowed by a huge thunderstorm, explosions in sky, large tsunamis, white lightning, foggy skies, raining, sketch, high detail, -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -n6 -o=./outputs/kyotoscapes/base3
+>> This input is larger than your defaults. If you run out of memory, please use a smaller image.
+>> loaded input image of size 1024x960 from ./init_images/tokyoscapes/base3a.png
+>> This input is larger than your defaults. If you run out of memory, please use a smaller image.
+>> sampler 'KSampler' is not yet supported. Using DDIM sampler
+Generating:   0%|                                                                                                                                                                                                     | 0/6 [00:00<?, ?it/s]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:51<00:00,  1.29s/it]
+Generating:  17%|███████████████████████████████▌                                                                                                                                                             | 1/6 [00:52<04:24, 52.88s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:59<00:00,  1.48s/it]
+Generating:  33%|███████████████████████████████████████████████████████████████                                                                                                                              | 2/6 [01:53<03:49, 57.46s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:52<00:00,  1.31s/it]
+Generating:  50%|██████████████████████████████████████████████████████████████████████████████████████████████▌                                                                                              | 3/6 [02:46<02:46, 55.52s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:49<00:00,  1.25s/it]
+Generating:  67%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                                                               | 4/6 [03:37<01:47, 53.69s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [00:52<00:00,  1.32s/it]
+Generating:  83%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                               | 5/6 [04:31<00:53, 53.72s/it]Running DDIM Sampling with 40 timesteps
+Decoding image: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40/40 [01:00<00:00,  1.51s/it]
+Generating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [05:33<00:00, 55.53s/it]
+>> Usage stats:
+>>   6 image(s) generated in 333.73s
+>>   Max VRAM used for this generation: 5.75G. Current VRAM utilization:2.22G
+>>   Max VRAM used since script start:  5.75G
+Outputs:
+[31] ./outputs/kyotoscapes/base3\000006.533445156.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, large tsunamis, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S533445156
+[32] ./outputs/kyotoscapes/base3\000006.2314222705.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, large tsunamis, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S2314222705
+[33] ./outputs/kyotoscapes/base3\000006.2263249248.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, large tsunamis, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S2263249248
+[34] ./outputs/kyotoscapes/base3\000006.4053004216.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, large tsunamis, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S4053004216
+[35] ./outputs/kyotoscapes/base3\000006.963510278.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, large tsunamis, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S963510278
+[36] ./outputs/kyotoscapes/base3\000006.1691419289.png: "tokyo skyline swallowed by a huge thunderstorm, explosions in sky, large tsunamis, white lightning, foggy skies, raining, sketch, high detail," -s200 -W1024 -H960 -C7.5 -Ak_lms -I./init_images/tokyoscapes/base3a.png -f0.2 -S1691419289
+
+goodbye!

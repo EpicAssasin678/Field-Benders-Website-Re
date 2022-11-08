@@ -40,7 +40,6 @@ const Navbar = () => {
     <AppBar className={classes.appBar} position="static" color="inherit">
       <Link to="/" className={classes.brandContainer}>
         <img component={Link} to="/" src={fieldBendersLogo} alt="icon" height="100px" />
-        <img className={classes.image} src={jfacLogo} alt="icon" height="80px" />
       </Link>
       <Link to="/chapters" className={classes.brandContainer}>
         <Button component={Link} to="/chapters">chapters</Button>

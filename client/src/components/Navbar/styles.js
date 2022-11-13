@@ -21,8 +21,10 @@ export default makeStyles((theme) => ({
     fontWeight: 300,
   },
   image: {
+    justifyContent: 'left',
     marginLeft: '10px',
     marginTop: '5px',
+    
   },
   toolbar: {
     display: 'flex',
@@ -54,6 +56,7 @@ export default makeStyles((theme) => ({
   brandContainer: {
     display: 'flex',
     alignItems: 'center',
+    textDecoration: 'none',
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),

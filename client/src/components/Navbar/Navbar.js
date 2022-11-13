@@ -38,12 +38,15 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <Link to="/" className={classes.brandContainer}>
-        <img component={Link} to="/" src={fieldBendersLogo} alt="icon" height="100px" />
+      <Link to="/">
+        <img className = {classes.image} component={Link} to="/" src={fieldBendersLogo} alt="icon" height="40px" />
       </Link>
-      <Link to="/chapters" className={classes.brandContainer}>
-        <Button component={Link} to="/chapters">chapters</Button>
-      </Link>
+
+      <Button className={classes.brandContainer} component={Link} to="/chapters">chapters</Button>
+      <Button className={classes.brandContainer} component={Link} to="/archive">the_archive</Button>
+      <Button className={classes.brandContainer} component={Link} to="/about">about</Button>
+      <Button className={classes.brandContainer} component={Link} to="/gallery">Gallery</Button>
+
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>
@@ -60,3 +63,22 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+/**
+ *    
+ *    <Link to="/" className={classes.image}>
+        <img component={Link} to="/" src={fieldBendersLogo} alt="icon" height="100px" />
+      </Link>
+      <Link to="/chapters" className={classes.brandContainer}>
+        <Button component={Link} to="/chapters">chapters</Button>
+      </Link>
+      <Link to="/archive" className={classes.brandContainer}>
+        <Button component={Link} to="/archive">the_archive</Button>
+      </Link>
+      <Link to="/about" className={classes.brandContainer}>
+        <Button component={Link} to="/about">about</Button>
+      </Link>
+      <Link to="/gallery" className={classes.brandContainer}>
+        <Button component={Link} to="/gallery">about</Button>
+      </Link>
+ */

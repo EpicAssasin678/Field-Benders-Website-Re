@@ -10,6 +10,8 @@ import Form from '../Form/Form';
 import Pagination from '../Pagination';
 import useStyles from './styles';
 
+import './gallery.css';
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }

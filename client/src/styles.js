@@ -1,4 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createTheme } from '@material-ui/core/styles';
+//import HackedKerx from './assets/fonts/hacked-kerx-webfont/hacked-kerx-webfont.woff2';
+
+
 
 export default makeStyles((theme) => ({
   [theme.breakpoints.down('sm')]: {
@@ -19,5 +22,14 @@ export default makeStyles((theme) => ({
   },
   image: {
     marginLeft: '15px',
+  },
+  typography: {
+    fontFamily: 'Hacked, Arial',
+  },
+  components : {
+    MuiCssBaseline: {
+      styleOverrides: 
+      '@font-face { font-family: \'Hacked\' font-style: normal; font-display: swap; font-weight: 400; src: local(\'Hacked\'), local(Hacked-Regular), url(${HackedKerx}) format:(\'woff2\');',
+    }
   },
 }));

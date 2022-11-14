@@ -39,9 +39,10 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <Link to="/">
-        <img className = {classes.image} component={Link} to="/" src={fieldBendersLogo} alt="icon" height="40px" />
+        <img className = {classes.image} component={Link} to="/home" src={fieldBendersLogo} alt="icon" height="40px" />
       </Link>
 
+      
       <Button className={classes.brandContainer} component={Link} to="/chapters">chapters</Button>
       <Button className={classes.brandContainer} component={Link} to="/archive">the_archive</Button>
       <Button className={classes.brandContainer} component={Link} to="/about">about</Button>

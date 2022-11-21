@@ -31,10 +31,10 @@ const Home = () => {
     
     return (
       <Grow in>
-        <Container  className={classes.Container}>
+        <Container className={classes.Container}>
             
-            <Typography variant='h1' xs={12}>It's 2044.</Typography>
-            <Typography variant='h4'>And Japan has been reduced to Hokkaido.</Typography>         
+            <Typography className='font-hacked' variant='h1' xs={12}>It's 2044.</Typography>
+            <Typography className='font-hacked' variant='h4'>And Japan has been reduced to Hokkaido.</Typography>         
             <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
                 <Grid item xs={12} sm={6} md={9} lg={12}>
                 <Typography variant='p'>In 2003, the Fukushima Daiichi Power Plant recieved a critical blow from a tidal

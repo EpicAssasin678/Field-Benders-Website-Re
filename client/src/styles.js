@@ -1,6 +1,18 @@
 import { makeStyles, createTheme } from '@material-ui/core/styles';
-//import HackedKerx from './assets/fonts/hacked-kerx-webfont/hacked-kerx-webfont.woff2';
+import HackedKerx from './assets/fonts/hacked-kerx-webfont/hacked-kerx-webfont.woff2';
 
+//TODO find a way to import and override the font styles according to classname rather than the global styles
+//https://surajsharma.net/blog/react-material-ui-custom-font for inspiration
+
+const hackedKerx = {
+  fontFamily : 'HackedKerx',
+  fontStyle : 'normal',
+  fontWeight : '400',
+  src: ` 
+  local('HackedKerx),
+  url(${HackedKerx}) format('woff2')
+  `
+}
 
 
 export default makeStyles((theme) => ({
@@ -9,6 +21,7 @@ export default makeStyles((theme) => ({
       flexDirection: 'column-reverse',
     },
   },
+  
   appBar: {
     borderRadius: 15,
     margin: '30px 0',
@@ -24,7 +37,8 @@ export default makeStyles((theme) => ({
     marginLeft: '15px',
   },
   typography: {
-    fontFamily: 'Hacked, Arial',
+    fontFamily: 'HackedKerx, Arial',
+    
   },
   components : {
     MuiCssBaseline: {

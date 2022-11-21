@@ -9,3 +9,51 @@
     font-style: normal;
 
 }
+@font-face {
+    font-family: 'swis721_blkcn_btblack';
+    src: url('./swiss_721/swiss_721_black_condensed_bt-webfont.woff2') format('woff2'),
+         url('./swiss_721/swiss_721_black_condensed_bt-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'consolasbold_italic';
+    src: url('./consolas/consolaz-webfont.woff2') format('woff2'),
+         url('./consolas/consolaz-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'consolasbold';
+    src: url('./consolas/consolab-webfont.woff2') format('woff2'),
+         url('./consolas/consolab-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'consolasregular';
+    src: url('./consolas/consola-webfont.woff2') format('woff2'),
+         url('./consolas/consola-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'consolasitalic';
+    src: url('./consolas/consolai-webfont.woff2') format('woff2'),
+         url('./consolas/consolai-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'krisharegular';
+    src: url('./krisharegular/krisha-regular-webfont.woff2') format('woff2'),
+         url('./krisharegular/krisha-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

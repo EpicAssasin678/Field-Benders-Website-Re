@@ -7,3 +7,19 @@ body {
     /* font-family: 'Noto Sans JP' !important; */
     font-family: 'Heebo', sans-serif !important;
 }
+
+.font-hacked {
+    font-family: 'hackedregular' !important;
+}
+
+.font-krishna {
+    font-family: 'krisharegular' !important;
+}
+
+.font-swiss721 {
+    font-family: 'swis721_blkcn_btblack' !important;
+}
+
+.font-consolas {
+    font-family: 'consolasregular' !important;
+}

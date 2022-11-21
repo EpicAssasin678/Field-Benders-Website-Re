@@ -15,6 +15,7 @@ import './gallery.css';
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
+
 const Gallery = () => {
   const classes = useStyles();
   const query = useQuery();

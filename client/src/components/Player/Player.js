@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+/* import React, { useState, useEffect } from "react";
 
 const useAudio = url => {
   const [audio] = useState(new Audio(url));
@@ -32,4 +32,4 @@ const Player = ({ url }) => {
   );
 };
 
-export default Player;
+export default Player; */

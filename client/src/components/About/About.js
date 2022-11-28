@@ -15,7 +15,7 @@ import '../../assets/fonts/stylesheet.css';
 import background_music from '../../assets/audio/mias3.mp3';
 import picture1 from '../../assets/img/illustrations/002.png';
 
-const Home = () => {
+const About = () => {
     const classes = useStyles();
  
     const [currentId, setCurrentId] = useState(0);
@@ -69,5 +69,5 @@ const Home = () => {
     );
   };
   
-  export default Home;
+  export default About;
   

@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 const chapterSchema = mongoose.Schema({
     title: String,
-    pages: Number
+    content: Map
+
 })
 
 var chapterData = mongoose.model('ChapterData', chapterSchema);

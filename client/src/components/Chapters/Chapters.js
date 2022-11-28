@@ -3,7 +3,7 @@ import { Container, Grow, Grid, TextField, Button, Paper, Typography, ListItem, 
 import FolderIcon from '@material-ui/icons/FolderOutlined';
 import ListItemIcon from '@material-ui/icons/ListOutlined';
 import { useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 
 import Player from '../Player/Player';
 import Pagination from '../Pagination';
@@ -12,8 +12,9 @@ import useStyles from './styles';
 import './chapters.css';
 import '../../assets/fonts/stylesheet.css';
 
+import chapterData from './ChapterData.json';
 
-
+//TODO make chapters meta stored in DB and create list that way
 
 const Chapters = () => {
     const classes = useStyles();
@@ -25,51 +26,45 @@ const Chapters = () => {
     const introduction_start = useRef(null);
     
     //generate chapter titles from database
-    function generate(element) {
-      return [0, 1, 2].map((value) =>
-        React.cloneElement(element, {
-          key: value,
-        }),
-      );
-    }
-    
-
+    const chapters = chapterData.Chapters;
     
     return (
       <Grow in>
         <Container className={classes.Container}>
-
-          <Grid container justify="center" alignItems="stretch" spacing={3} className={classes.gridContainer}>
-            <Typography variant='h3' xs={12}>CHAPTERS</Typography>
-            <Grid item xs={12} sm={6} md={9} lg={12}>
+          <Typography className={'font-hacked'} align = 'center' variant='h3' xs={12}>CHAPTERS</Typography>
+          <Grid container justifyContent="center" alignItems="stretch" spacing={3} className={classes.gridContainer}>
+            <Grid item lg={true} md={12} sm={12} xs={12}>
 
             </Grid>
             <Grid item xs={12} sm={6} md={9}>
 
-            <List dense={true}>
-              {generate(
-                <ListItem>
-                  <FolderIcon />
-                  <ListItemText 
-                    classes={'chapter-item'}
-                    className={classes.chapterListItem}
-                    primary="Single-line item"
-                    secondary={'${generate}' ? 'Secondary text' : null}
-                  />
-                </ListItem>,
-              )}
-            </List>
 
+              <List dense={true}>
+                {chapters.map((value) => (
+                  <ListItem key={value}>
+                    
+                    <Button id={`button${chapters.indexOf(value)+1}`} component={Link} to={`/chapter${chapters.indexOf(value)+1}`}>
+                      <FolderIcon className='chapterlist-icon'/>
+                    </Button>
+                  
+                    <ListItemText
+                    className={classes.chapterListItem}
+                    primary={`Chapter ${chapters.indexOf(value)+1}`}
+                    secondary= {value}
+                    />
+                  </ListItem>
+                  
+                ))}
+ 
+              </List>
             </Grid>
       
           <Grid item xs={12} sm={6} md={9}>
-              <Typography variant='p'></Typography>
+              <Typography variant='body1'></Typography>
           </Grid>
 
           </Grid>
-            <div ref={introduction_start}>
 
-            </div>
         </Container>
       </Grow>
     );

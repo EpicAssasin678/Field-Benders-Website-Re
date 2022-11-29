@@ -6,6 +6,12 @@ export default makeStyles((theme) => ({
   Container: {
     justifyContent: 'center',
   },
+  //notworking
+  chapterWrapper : {
+    //position: 'absolute',
+    //objectFit: 'cover',
+    width: '10%'
+  },
   image: {
     maxHeight: '100%',
     maxWidth: '100%',
@@ -16,6 +22,9 @@ export default makeStyles((theme) => ({
 
   },
   typography: {
+    
+  },
+  controlPanel: {
     
   },
     appBarSearch: {

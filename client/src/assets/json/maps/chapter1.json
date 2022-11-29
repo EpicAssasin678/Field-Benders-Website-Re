@@ -1,0 +1,19 @@
+{
+    "media": [
+        {
+            "name": "Old Stories",
+            "path": "../../assets/mias3.mp3",
+            "alt" : "Old Stories"
+        },
+        {
+            "name": "blahblah",
+            "path": "../../assets/img/illustrations/",
+            "alt" : "Just some random alt text"
+        },
+        {
+            "name": "blahblah",
+            "path": "../../assets/img/illustrations/",
+            "alt" : "Just some random alt text"
+        }
+    ]
+}

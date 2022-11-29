@@ -9,6 +9,8 @@ import Player from '../Player/Player';
 import Pagination from '../Pagination';
 import useStyles from './styles';
 
+import getWindowSize from "../../App";
+
 import './chapters.css';
 import '../../assets/fonts/stylesheet.css';
 
@@ -20,18 +22,29 @@ const Chapters = () => {
     const classes = useStyles();
  
     const [currentId, setCurrentId] = useState(0);
+
     const dispatch = useDispatch();
     //const history = useHistory();
-  
+
     const introduction_start = useRef(null);
     
     //generate chapter titles from database
     const chapters = chapterData.Chapters;
+
+
+
     
     return (
       <Grow in>
         <Container className={classes.Container}>
-          <Typography className={'font-hacked'} align = 'center' variant='h3' xs={12}>CHAPTERS</Typography>
+          
+          
+          
+          {window.innerWidth < 540 ? (
+          <Typography className={'font-hacked'} align = 'left' variant='h3' xs={12}>CHAPTERS</Typography>)
+          :(<Typography className={'font-hacked'} align = 'center' variant='h3' xs={12}>CHAPTERS</Typography>
+          )}
+
           <Grid container justifyContent="center" alignItems="stretch" spacing={3} className={classes.gridContainer}>
             <Grid item lg={true} md={12} sm={12} xs={12}>
 

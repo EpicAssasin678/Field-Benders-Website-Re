@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import express from 'express';
 
 
-
 export const getChapterData = async (req, res) => {
 
 }

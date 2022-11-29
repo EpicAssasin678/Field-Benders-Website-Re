@@ -11,7 +11,7 @@ const Chapter = () => {
 
     return(
         
-    <div>
+    <div className='chapter-wrapper'>
         <div>&nbsp;</div>
         
         <p class="c1">&nbsp;</p>

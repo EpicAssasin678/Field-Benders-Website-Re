@@ -3,9 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import HackedKerx from '../../assets/fonts/hacked-kerx-webfont/hacked-kerx-webfont.woff2';
 
 export default makeStyles((theme) => ({
-  
-  Container: {
+  ':root ': {
     
+  },
+  Container: {
+    //backgroundColor: 'yellow'
   },
   image: {
     maxHeight: '100%',

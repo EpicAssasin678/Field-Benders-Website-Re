@@ -1,7 +1,14 @@
 :root {
-    --primary_red:#E9165F
+    --primary_red:#E9165F;
+    --primary_yellow:#E9DA16;
+    --primary_blue:#165FE9;
+    
 }
 
+
+.black {
+    color: black;
+}
 
 body {
     background-color: #f7f8fc;
@@ -20,7 +27,7 @@ body {
     font-family: 'krisharegular' !important;
 }
 
-.font-swiss721 {
+.font-swiss {
     font-family: 'swis721_blkcn_btblack' !important;
 }
 

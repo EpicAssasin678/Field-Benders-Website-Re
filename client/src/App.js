@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
@@ -18,10 +18,30 @@ import Chapter4 from './assets/chapters/Chapter4';
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
+  
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+    setWindowSize(getWindowSize());
+    localStorage.setItem('windowSize', getWindowSize())
+    console.log(`DEV: localStorage.windowSize(w,h) => [${windowSize.innerWidth},${windowSize.innerHeight}]`)
+    //console.log("DEV~Window was resized to: " + windowSize.innerWidth);
+    }
+    window.addEventListener('resize', handleWindowResize);
+    
+  }, []);
+  
+
+  
+  function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+  }
 
   return (
     <BrowserRouter>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" className="main-app-container">
         <Navbar />
         <Switch>
           <Route path="/admin" exact component={Admin}/>
@@ -45,7 +65,11 @@ const App = () => {
         </Switch>
       </Container>
     </BrowserRouter>
+
+    
   );
 };
+
+
 
 export default App;

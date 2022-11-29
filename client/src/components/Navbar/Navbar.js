@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
+import { AppBar, Typography, Toolbar, Avatar, Button, Icon, IconButton } from '@material-ui/core';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
@@ -9,8 +9,9 @@ import fieldBendersLogo from '../../assets/img/logo/field_benders_logo.png';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
@@ -23,6 +24,8 @@ const Navbar = () => {
 
     setUser(null);
   };
+
+  
 
   useEffect(() => {
     const token = user?.token;
@@ -48,6 +51,15 @@ const Navbar = () => {
       <Button className={classes.brandContainer} component={Link} to="/about">about</Button>
       <Button className={classes.brandContainer} component={Link} to="/gallery">Gallery</Button>
 
+      
+      {window.location.href.match("((chapter):*\d)")==true ? (
+        <Button>Otherwise we don't show a thing</Button>
+      ) : (
+        <Typography>Control Panel if we're reading</Typography>
+      )
+         
+        
+      }
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>

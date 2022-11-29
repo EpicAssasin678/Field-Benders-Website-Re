@@ -5,6 +5,7 @@ import UserModal from "../models/user.js";
 
 const secret = 'test';
 
+
 export const signin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -45,4 +46,17 @@ export const signup = async (req, res) => {
     
     console.log(error);
   }
+
 };
+
+/* 
+export const checkIfAdmin = async (req, res) => {
+
+  const {userName, password } = req.body;
+
+  try {
+    const oldUser = await UserModal
+  }  
+
+} 
+*/

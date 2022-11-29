@@ -14,6 +14,7 @@ import '../../assets/fonts/stylesheet.css';
 
 import background_music from '../../assets/audio/mias3.mp3';
 import picture1 from '../../assets/img/illustrations/002.png';
+import tokyoUpscale from '../../assets/img/illustrations/tokyo_upscale.jpg';
 
 const Home = () => {
     const classes = useStyles();
@@ -26,15 +27,14 @@ const Home = () => {
     
     //play audio upon entering
     //const [audio] = useState(new Audio(background_music).play());
+    //const audio = new Audio(background_music).play();
     
-
     
     return (
       <Grow in>
-        <Container className={classes.Container}>
-            
+        <Container className={classes.Container} >
             <Typography className='font-hacked' variant='h1' xs={12}>It's 2044.</Typography>
-            <Typography className='font-hacked' variant='h4'>And Japan has been reduced to Hokkaido.</Typography>         
+            <Typography className={['font-hacked', 'black']} variant='h4' >And Japan has been reduced to Hokkaido.</Typography>         
             
             <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
                 <Grid item xs={12} sm={6} md={9} lg={12}>
@@ -48,9 +48,8 @@ const Home = () => {
                 called JFAC. With a new force based within the heart of the area threatening to send nuclear warheads overseas, what can 
                 operatives do in an attempt to stop them?</Typography>
                 </Grid>
-                <Grid item xs={12} sm={6} md={9}>
+                <Grid item xs={12} sm={6} md={9} >
                     <img src={picture1} className={classes.image} ></img>
-
                 </Grid>
         
             <Grid item xs={12} sm={12} md={12}>
@@ -63,9 +62,9 @@ const Home = () => {
             To begin reading this online light novel, navigate to <Link to={'/chapters'}>chapters</Link> and start in a preferred mode. 
             For help on how to use the player or what settings to use, click on the help pop-up once within the menu.
           </Typography>
-          
         </Container>
       </Grow>
+          
     );
   };
   

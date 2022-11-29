@@ -1,5 +1,37 @@
-.Typography {
+
+
+
+#root {
     
 }
 
+.main-app-container {
+    
+}
+    
+#app {
 
+    opacity: 0;
+
+}
+
+
+
+#background-image {
+
+}
+
+/**
+#background-image {
+    width: inherit;
+    position:absolute;
+    justify-content: right;
+    
+    top: 30%;
+    left: 10%;
+    right: 20%;
+    bottom: 0%;
+    opacity: 50%;
+    z-index: -1;
+}
+*/

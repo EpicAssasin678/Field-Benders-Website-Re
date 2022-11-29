@@ -9,7 +9,7 @@ import Player from '../Player/Player';
 import Pagination from '../Pagination';
 import useStyles from './styles';
 
-import './home.css';
+import './about.css';
 import '../../assets/fonts/stylesheet.css';
 
 import background_music from '../../assets/audio/mias3.mp3';
@@ -27,41 +27,64 @@ const About = () => {
     //play audio upon entering
     //const [audio] = useState(new Audio(background_music).play());
     
+    function redisplayGrid (str) {
 
+    }
     
+    //TODO implement buttons
     return (
       <Grow in>
         <Container className={classes.Container}>
             
-            <Typography className='font-hacked' variant='h1' xs={12}>It's 2044.</Typography>
-            <Typography className='font-hacked' variant='h4'>And Japan has been reduced to Hokkaido.</Typography>         
+            <Typography className='font-hacked' variant='h1' xs={12} align="left">About the Site</Typography>
+            <Typography className='font-consolas' variant='body1' >This site was created out of a personal passion and desire to feature my installments of a novel into a format
+            that is more distributeable, and immersive. A traditional ebook doesn't hold the same gravity as an interactive web novel does, therefore I'm preferential to visual aid and 
+            auditory aid. I know that a normal ebook would allow you to read the same content, but out of sympathy for those of you with visualization issues like me, I wanted this world
+            to still come across to you as vividly as it did in my dreams. Because I have spent so much time into this project in the last three months, I would like to document my stylistic 
+            choices, as well as give credit for the tools I'm using.</Typography>         
+            <Typography className='font-hacked' variant='h4' xs={12} align="left">Typography</Typography>
             
-            <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
-                <Grid item xs={12} sm={6} md={9} lg={12}>
-                <Typography variant='body1'>In 2003, the Fukushima Daiichi Power Plant recieved a critical blow from a tidal
-                tsunami created by a large earthquake. Shortly after, the facility went supercritical, forcing the Japanese Government to 
-                shut down the area and evacuate en mass. Only a year after the explosion, those who tried to evacuate the estimated 
-                "Fallout Area" were afflicted with a horrifying new disease known only as The Sickness. This area became abruptly unradioactive,
-                and highly unstable with physics defying monstrosities appearing irregularly. 41 years later, technology has skyrocketed,
-                global markets are in failure, and this area has expanded 365 miles in radius. Worst of all, those born in this area have 
-                devoloped strange abilities and have been dubbed 'Field Benders' under a fledgeling government formed from the ruins of Honshu
-                called JFAC. With a new force based within the heart of the area threatening to send nuclear warheads overseas, what can 
-                operatives do in an attempt to stop them?</Typography>
-                </Grid>
-                <Grid item xs={12} sm={6} md={9}>
-                    <img src={picture1} className={classes.image} ></img>
+            <Grid container justify="center" alignItems="stretch" spacing={3} className={classes.gridContainer}>
+            
+            <Grid item justifyContent='center' >
+              <Button className={'font-hacked'} onClick={redisplayGrid('hacked')}><p class="font-hacked button-text">This is HACKED</p></Button>
+              <Button className={'font-krishna'} onClick={redisplayGrid('hacked')}><p class="font-krishna button-text">This is krishna</p></Button>
+              <Button className={'font-swiss'} onClick={redisplayGrid('hacked')}><p class="font-swiss button-text">This is swiss721</p></Button>
+              <Button  className={['font-consolas', 'large']} onClick={redisplayGrid('hacked')}><p class="font-consolas button-text">This is consolas</p></Button>
+            </Grid>
+            <Grid item>
 
-                </Grid>
-        
+            </Grid>
+            <Grid item>
+            </Grid>
+            <Grid item >
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={12} lg={12}>
+              <Typography variant='h1'>This is heading 1.</Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={12} lg={12}>
+              <Typography variant='h2'>This is heading 2.</Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={12} lg={12}>
+              <Typography variant='h3'>This is heading 3.</Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} md={12} lg={12}>
+              <Typography variant='h4'>This is heading 4.</Typography>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+              <Typography variant='body1'>This is body.</Typography>
+
+            </Grid>
+            
             <Grid item xs={12} sm={12} md={12}>
 
             </Grid>
             
           </Grid>
-          <Typography className='font-hacked' variant='h3'>How to read this work.</Typography>
+          <Typography className='font-hacked' variant='h3'>Technology Used</Typography>
           <Typography className='font-consolasregular' variant='body1'>
-            To begin reading this online light novel, navigate to <Link to={'/chapters'}>chapters</Link> and start in a preferred mode. 
-            For help on how to use the player or what settings to use, click on the help pop-up once within the menu.
+
           </Typography>
           
         </Container>

@@ -38,8 +38,6 @@ const Chapters = () => {
       <Grow in>
         <Container className={classes.Container}>
           
-          
-          
           {window.innerWidth < 540 ? (
           <Typography className={'font-hacked'} align = 'left' variant='h3' xs={12}>CHAPTERS</Typography>)
           :(<Typography className={'font-hacked'} align = 'center' variant='h3' xs={12}>CHAPTERS</Typography>
@@ -50,7 +48,6 @@ const Chapters = () => {
 
             </Grid>
             <Grid item xs={12} sm={6} md={9}>
-
 
               <List dense={true}>
                 {chapters.map((value) => (

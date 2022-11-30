@@ -14,3 +14,8 @@ We're also going to first need a location to create these posts, thus the admin 
 
 #### Creating the admin menu
 To create the admin menu we will need to create a new HANDLER function called verifyIfAdmin, within user.js. After we update the controller, we create an axios routing and a client-side handler.
+
+
+## 11/30/22
+
+### Adding some styles

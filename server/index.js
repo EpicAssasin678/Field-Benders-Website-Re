@@ -6,6 +6,8 @@ import cors from 'cors';
 
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
+import newsRouter from './routes/newsPost.js'; 
+
 
 import key from './cfg.js';
 
@@ -17,6 +19,7 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
+app.use('/news', newsRouter);
 
 const CONNECTION_URL = key;
 const PORT = process.env.PORT|| 5000;

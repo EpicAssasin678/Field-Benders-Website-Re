@@ -34,12 +34,9 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
     const [songStatus, changeSongStatus] = useState('play');
     
     //load in the beggining track for the player 
-
     console.log(trackMap);
-    
-    
-    const playButtonRef = useRef();
 
+    const playButtonRef = useRef();
     //const [playing, toggle] = useAudio(track);
 
     const handleChange = (event, state) => {
@@ -50,7 +47,6 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
     //const [audio] = useState(new Audio(track).play());
     
     const handlePlayClick = (event) => {
-
         let playButtonState = playButtonRef.current.value;
         console.log(`${song} set to ${playButtonState}`);
         if (playButtonState == 'play') {
@@ -62,7 +58,6 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
             //toggle();
         };
         //handle further logic like track skipping
-            
         
         /**
          playButtonState = playButtonState == 'play' ? (

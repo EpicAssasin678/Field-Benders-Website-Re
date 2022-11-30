@@ -8,6 +8,7 @@ import { getPostsBySearch } from '../../actions/posts';
 import Player from '../Player/Player';
 import Pagination from '../Pagination';
 import useStyles from './styles';
+import NewsForm from './NewsForm/NewsForm';
 
 
 import '../../assets/fonts/stylesheet.css';
@@ -30,9 +31,18 @@ const Admin = () => {
     return (
       <Grow in>
         <Container className={classes.Container}>
-            
-            
-            
+            <Grid container direction={'row'}>
+              <Grid item>
+                <Typography variant='h1'> Create a news post. </Typography>
+                <NewsForm />
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Typography variant='h1'>Manage gallery posts. </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant='h1'>Manage users. </Typography>
+            </Grid>
         </Container>
       </Grow>
     );

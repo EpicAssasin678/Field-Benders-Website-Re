@@ -6,14 +6,32 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import useStyles from './styles';
 
-import MusicPanel from './MusicPanel/MusicPanel';
-import MediaInspector from './MediaInspector/MediaInspector';
-import ReaderControls from './ReaderControls/ReaderControls';
+
+import NewsPosts from '../NewsPosts/NewsPosts';
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 const NewsBar = () => {
+    const classes = useStyles();
+    const query = useQuery();
+    const page = query.get('page') || 1;
+    const searchQuery = query.get('searchQuery');
+    
+    const [currentId, setCurrentId] = useState(0);
 
+    console.log(`NewsBar: query=>${query}`);
+    
     return (
         <>
+        <Grow in>
+            <Grid container direction={'row'} spacing={2} className={classes.newsBar}>
+                <Grid item>
+                    <NewsPosts setCurrentId={setCurrentId} />
+                </Grid>
+            </Grid>
+        </Grow>
         </>
     )
     

@@ -1,9 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import NewsPost from '../models/newsPost';
+import NewsPost from '../models/newsPost.js';
 
 const router = express.Router();
+
 
 export const getNewsPosts = async (req, res) => {
 
@@ -13,8 +14,8 @@ export const getNewsPosts = async (req, res) => {
         const LIMIT = 4;
         const startIndex = (Number(page) - 1) * LIMIT;
 
-        const total = await newsPost.countDocuments( {} );
-        const posts = await newsPost.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
+        const total = await NewsPost.countDocuments( {} );
+        const posts = await NewsPost.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
 
         res.json({ data : posts, currentPage: Number(page), numberOfPages: Math.ceil(total/LIMIT)});
 
@@ -26,6 +27,18 @@ export const getNewsPosts = async (req, res) => {
 
 export const getNewsPostsBySearch = async (req, res) => {
     
+}
+
+export const getNewsPost = async (req, res) => { 
+    const { id } = req.params;
+
+    try {
+        const post = await NewsPost.findById(id);
+        
+        res.status(200).json(post);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
 }
 
 export const createNewsPost = async (req, res) => {
@@ -43,3 +56,5 @@ export const createNewsPost = async (req, res) => {
     }
 
 }
+
+export default router;

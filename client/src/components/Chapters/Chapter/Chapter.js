@@ -21,13 +21,10 @@ const Chapter = ({chapterName}) => {
     return (
         <Grow in>
             <Container className={classes.Container}>
-                <Grid className={classes.gridContainer}>
-
+                <Grid container className={classes.gridContainer} >
                     <Paper elevation={3}>
-                        
                         <chapterName className={classes.Container}/>
                     </Paper>
-                        
                 </Grid>
             </Container>
         </Grow>

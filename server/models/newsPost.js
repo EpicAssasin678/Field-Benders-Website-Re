@@ -1,13 +1,13 @@
 import mongoose, { Schema } from 'mongoose';
 
-const newsPostSchema = new Schema({
+const newsPostSchema = mongoose.Schema({
     title : String,
+    information : String,
     date : {
         type: Date,
         default: new Date(),
     },
-    information : String
 })
 
-var NewsPost = mongoose.model(newsPostSchema);
+var NewsPost = mongoose.model('NewsPost', newsPostSchema);
 export default NewsPost;

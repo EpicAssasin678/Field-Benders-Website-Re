@@ -64,9 +64,9 @@ const ControlPanel = ({mediaMap}) => {
     
     return (
         <Fade in>
-        <Paper className={classes.paper} >
+        <Paper className={classes.paper}>
 
-            <MusicPanel trackMap={MediaMap.media}/>
+            <MusicPanel trackMap={MediaMap.media} />
 
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`}>
             <Box
@@ -77,7 +77,6 @@ const ControlPanel = ({mediaMap}) => {
             ></Box>
 
             
-
             <React.Fragment key={anchor}>
                 
                 <Button onClick={toggleDrawer(anchor, true)} sx={{justifyContent:'center', textAlign:'center'}}>

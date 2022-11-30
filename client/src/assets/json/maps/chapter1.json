@@ -3,17 +3,26 @@
         {
             "name": "Old Stories",
             "path": "../../assets/mias3.mp3",
-            "alt" : "Old Stories"
+            "alt" : "Old Stories",
+            "type": "audio",
+            "serverSide": false,
+            "description": "No description here."
         },
         {
-            "name": "blahblah",
-            "path": "../../assets/img/illustrations/",
-            "alt" : "Just some random alt text"
+            "name": "Soma Area",
+            "path": "../../assets/img/illustrations/0005.png",
+            "alt" : "Soma Base",
+            "type": "image",
+            "serverSide": false,
+            "description": "Snapshot of Soma Base area's surroundings, the village itself. During a storm."
         },
         {
-            "name": "blahblah",
-            "path": "../../assets/img/illustrations/",
-            "alt" : "Just some random alt text"
+            "name": "Surrounding Honshu",
+            "path": "../../assets/img/illustrations/004.png",
+            "alt" : "Just some random alt text",
+            "type": "image",
+            "serverSide": false,
+            "description": "Snapshot of Soma Base area's surroundings, the village itself. During a storm."
         }
     ]
 }

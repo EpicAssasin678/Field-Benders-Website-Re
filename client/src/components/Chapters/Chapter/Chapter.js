@@ -8,22 +8,24 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import useStyles from './styles';
 
-import Chapter from '../../../assets/chapters/Chapter1';
+import Chapter1 from '../../../assets/chapters/Chapter1';
 
-
-const Chapter = () => {
+//TODO create all chapters dynamically with this component, use lady loading to properly load correct component
+const Chapter = ({chapterName}) => {
 
     const classes = useStyles();
     const [currentId, setCurrentId] = useState(0);
     
     
+
     return (
         <Grow in>
             <Container className={classes.Container}>
                 <Grid className={classes.gridContainer}>
 
                     <Paper elevation={3}>
-                        <Chapter className={classes.Container}/>
+                        
+                        <chapterName className={classes.Container}/>
                     </Paper>
                         
                 </Grid>

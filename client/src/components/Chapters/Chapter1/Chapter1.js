@@ -22,12 +22,16 @@ const Chapter1 = () => {
     return (
         <Grow in>
             <Container >
+                <Paper>
+                    <Typography variant='body1' align='center' className={classes.betaDisclaimer}>BETA EXPERIENCE </Typography>
+
+                </Paper>
                 <Grid container className={classes.gridContainer} justify='space-between' alignItems='stretch' spacing={3}>
 
                     <Grid item xs={12} s={10} md={10} lg={10}>
+
                         <Paper elevation={3} className={classes.chapterPaper} >
                             <Chapter />
-                            
                         </Paper>
 
                     </Grid>

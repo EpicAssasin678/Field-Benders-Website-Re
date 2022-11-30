@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   
+  betaDisclaimer: {
+    margin: '2.5%',
+  },
   Container: {
     justifyContent: 'center',
   },

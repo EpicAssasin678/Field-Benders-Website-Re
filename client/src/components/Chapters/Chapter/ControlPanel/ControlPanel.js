@@ -1,6 +1,6 @@
 //Have drawer that resizes and disappears for smaller devices
 import React, { useRef, useState } from 'react';
-import { Container, Grow, Grid, Paper, SwipeableDrawer, Button, List, Box, Icon, Typography} from '@material-ui/core';
+import { Container, Grow, Grid, Paper, SwipeableDrawer, Button, List, Box, Icon, Typography, Fade} from '@material-ui/core';
 
 import ListItemIcon from '@material-ui/icons/ListOutlined';
 import ListIcon from '@material-ui/icons/List';
@@ -12,28 +12,28 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import useStyles from './styles';
 
-import MusicPanel from './MusicPanel';
-import MediaInspector from './MediaInspector';
-import ReaderControls from './ReaderControls';
+import MusicPanel from './MusicPanel/MusicPanel';
+import MediaInspector from './MediaInspector/MediaInspector';
+import ReaderControls from './ReaderControls/ReaderControls';
 
 //change to modular statement
 import MediaMap from '../../../../assets/json/maps/chapter1.json';
+
+const createTrackMap = (mediaMap) => {
+
+}
+
 
 /**
  * 
  * @returns Control panel consisting of a volume control, media panel, and a reader control .
  * @props mediaMap = the json corresponding to the chapter's media
  */
-
-
 const ControlPanel = ({mediaMap}) => {
 
     const classes = useStyles();
     const [currentId, setCurrentId] = useState(0);
     const [anchor, setAnchor] = useState('right');
-
-    const nmediaMap = MediaMap.media;
-
     //TODO make state management for playing music 
     
     //TODO make this configureable
@@ -44,7 +44,6 @@ const ControlPanel = ({mediaMap}) => {
         bottom: false,
         right: false,
       });
-      
     
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift') ) {
@@ -59,10 +58,15 @@ const ControlPanel = ({mediaMap}) => {
 
     }
     
+    MediaMap.media.map((key) => {
+        
+    })
+    
     return (
+        <Fade in>
         <Paper className={classes.paper} >
 
-            <MusicPanel  track={MediaMap.media[0].name} trackMap={MediaMap.media}/>
+            <MusicPanel trackMap={MediaMap.media}/>
 
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`}>
             <Box
@@ -86,14 +90,15 @@ const ControlPanel = ({mediaMap}) => {
                 onClose={toggleDrawer(anchor, false)}
                 onOpen={toggleDrawer(anchor, true)}
                 >
-                    
-                    <Button>Test</Button>
+                    <Typography variant='body1'>Media Inspector (BETA)</Typography>
+                    <MediaInspector media={MediaMap.media}/>
                 </SwipeableDrawer>
             </React.Fragment>
             </form>
             
+            <ReaderControls />
         </Paper>
-
+        </Fade>
     )
 
 }

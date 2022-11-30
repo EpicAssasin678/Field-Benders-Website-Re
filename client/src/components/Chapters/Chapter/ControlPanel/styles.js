@@ -20,10 +20,6 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     alignContent: 'center'
   },
-  fileInput: {
-    width: '97%',
-    margin: '10px 0',
-  },
   playControls: {
     width: 'inherit',
     alignContent: 'center',
@@ -31,9 +27,13 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
+  volumeComponent: {
+    width: 'inherit',
+    alignContent: 'center',
+    flexDirection: 'row'
+  }
   
-  buttonSubmit: {
-    marginBottom: 10,
-  },
+  
+
 }));
 

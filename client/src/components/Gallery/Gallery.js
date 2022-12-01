@@ -48,6 +48,7 @@ const Gallery = () => {
 
   const handleDeleteChip = (chipToDelete) => setTags(tags.filter((tag) => tag !== chipToDelete));
 
+  console.log(searchQuery);
   return (
     <Grow in>
       <Container maxWidth="xl">

@@ -7,7 +7,6 @@ const router = express.Router();
 
 
 export const getNewsPosts = async (req, res) => {
-
     const { page } = req.query;
 
     try {
@@ -15,14 +14,17 @@ export const getNewsPosts = async (req, res) => {
         const startIndex = (Number(page) - 1) * LIMIT;
 
         const total = await NewsPost.countDocuments( {} );
-        const posts = await NewsPost.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
+        const newsPosts = await NewsPost.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
 
-        res.json({ data : posts, currentPage: Number(page), numberOfPages: Math.ceil(total/LIMIT)});
-
+        console.log(`BACKEND>controllers: ${newsPosts} \n PAGE:${page} `);
+        
+        res.json({ data : newsPosts, currentPage: Number(page), numberOfPages: Math.ceil(total/LIMIT)});
+        
     } catch (error) {
         res.status(404).json({ message: error.message });
 
     }
+    
 }
 
 export const getNewsPostsBySearch = async (req, res) => {
@@ -33,18 +35,18 @@ export const getNewsPost = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const post = await NewsPost.findById(id);
+        const newsPost = await NewsPost.findById(id);
         
-        res.status(200).json(post);
+        res.status(200).json(newsPost);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 }
 
 export const createNewsPost = async (req, res) => {
-    const post = req.body;
+    const newsPost = req.body;
 
-    const newNewsPost = new NewsPost( {...post, date: new Date().toISOString()});
+    const newNewsPost = new NewsPost( {...newsPost, date: new Date().toISOString()});
 
     try {
         await newNewsPost.save();

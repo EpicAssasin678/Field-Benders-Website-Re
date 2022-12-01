@@ -1,6 +1,6 @@
 //Have drawer that resizes and disappears for smaller devices
 import React, { useRef, useState } from 'react';
-import { Container, Grow, Grid, Paper, SwipeableDrawer, Button, List, Box, Icon, Typography, Fade} from '@material-ui/core';
+import { Container, Grow, Grid, Paper, Typography, Fade} from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -8,8 +8,10 @@ import useStyles from './styles';
 
 
 import NewsPosts from '../NewsPosts/NewsPosts';
+import NewsPost from '../NewsPosts/NewsPost/NewsPost';
 
 function useQuery() {
+    
     return new URLSearchParams(useLocation().search);
 }
 
@@ -21,14 +23,17 @@ const NewsBar = () => {
     
     const [currentId, setCurrentId] = useState(0);
 
-    console.log(`NewsBar: query=>${query}`);
+    console.log(`NewsBar: ${useLocation().search} |  query=>${query}`);
+    console.log(`searchquery: ${searchQuery}`);
     
     return (
         <>
         <Grow in>
-            <Grid container direction={'row'} spacing={2} className={classes.newsBar}>
+            <Grid container direction={'row'}  className={classes.newsBar} justifyContent='center'>
+                <Typography variant='h3'>News Bar</Typography>
                 <Grid item>
                     <NewsPosts setCurrentId={setCurrentId} />
+                    
                 </Grid>
             </Grid>
         </Grow>
@@ -38,3 +43,7 @@ const NewsBar = () => {
 }
 
 export default NewsBar;
+/**
+ * console.log(`BACKEND>controllers/getNewsPosts: ${newsPosts} \nPAGE: ${page} `);
+ * console.log(`BACKEND>controllers/getNewsPost: ${newsPost} `);
+ */

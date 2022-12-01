@@ -9,6 +9,7 @@ import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 
 import useStyles from './styles';
+import { getNewsPost } from '../../../actions/newsPosts';
 
 const NewsPost = ({ newsPost, setCurrentId }) => {
     
@@ -17,13 +18,36 @@ const NewsPost = ({ newsPost, setCurrentId }) => {
     const history = useHistory();
     const classes = useStyles();
 
-    const openNewsPost =(e) => {
+    const openNewsPost = (e) => {
+        dispatch(getNewsPost(newsPost._id, history));
         history.push(`/news/${newsPost._id}`);
     }
+
     console.log(`~DEV/post found: ${newsPost}` )
 
     return (
         <Card raised elevation={6}>
+
+                <CardContent>
+                    <div>
+                        <Typography color={'black'} variant='h1' className={[`newsPost-title`]}>{newsPost.title}</Typography>
+                        <Typography variant='h3' color ={'black'} className={['newsPost-date']}>{newsPost.date}</Typography>
+                    </div>
+                </CardContent>
+                <CardContent>
+                    <Typography paragraph variant='body1' className={['newsPost-body']}>{newsPost.information}</Typography>
+                </CardContent>
+
+  
+        </Card>
+    );
+};
+
+export default NewsPost;
+
+/**
+ * 
+ *         <Card raised elevation={6}>
             <ButtonBase 
                 componenet="span"
                 name="test"
@@ -41,7 +65,4 @@ const NewsPost = ({ newsPost, setCurrentId }) => {
 
             </ButtonBase>
         </Card>
-    );
-};
-
-export default NewsPost;
+ */

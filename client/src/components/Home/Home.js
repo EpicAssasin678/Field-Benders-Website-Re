@@ -32,16 +32,65 @@ const Home = () => {
     
     
     return (
-      <Grow in>
+<Grow in>
+        <Grid container>
+          <Grid item>
+            <Container className={classes.Container} >
+                <Typography className='font-hacked' variant='h1' xs={12}>It's 2044.</Typography>
+                <Typography className={`font-hacked black`} variant='h4' >And Japan has been reduced to Hokkaido.</Typography>         
+                
+                <Grid container justify="space-between" alignItems="stretch" spacing={3} className={`${classes.gridContainer}`} >
+                    <Grid item xs={12} sm={6} md={9} lg={12}>
+                    <Typography variant='body1' className={classes.textJustify}>In 2003, the Fukushima Daiichi Power Plant recieved a critical blow from a tidal
+                    tsunami created by a large earthquake. Shortly after, the facility went supercritical, forcing the Japanese Government to 
+                    shut down the area and evacuate en mass. Only a year after the explosion, those who tried to evacuate the estimated 
+                    "Fallout Area" were afflicted with a horrifying new disease known only as The Sickness. This area became abruptly unradioactive,
+                    and highly unstable with physics defying monstrosities appearing irregularly. 41 years later, technology has skyrocketed,
+                    global markets are in failure, and this area has expanded 365 miles in radius. Worst of all, those born in this area have 
+                    devoloped strange abilities and have been dubbed 'Field Benders' under a fledgeling government formed from the ruins of Honshu
+                    called JFAC. With a new force based within the heart of the area threatening to send nuclear warheads overseas, what can 
+                    operatives do in an attempt to stop them?</Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={9} >
+                        <img src={picture1} className={`${classes.image} ${classes.flexCenter}`} ></img>
+                    </Grid>
+            
+                <Grid item xs={12} sm={12} md={12}>
+
+                </Grid>
+                
+              </Grid>
+              <Typography className='font-hacked' variant='h3'>How to read this work.</Typography>
+              <Typography className='font-consolasregular' variant='body1'>
+                To begin reading this online light novel, navigate to <Link to={'/chapters'}>chapters</Link> and start in a preferred mode. 
+                For help on how to use the player or what settings to use, click on the help pop-up once within the menu.
+              </Typography>
+            </Container>
+
+          </Grid>
+          <Grid item>
+              <NewsBar />
+          </Grid>
+          
+        </Grid>
+      </Grow>
+          
+    );
+  };
+  
+  export default Home;
+  
+  /**
+<Grow in>
         <Grid container>
           <Grid item>
             <Container className={classes.Container} >
                 <Typography className='font-hacked' variant='h1' xs={12}>It's 2044.</Typography>
                 <Typography className={['font-hacked', 'black']} variant='h4' >And Japan has been reduced to Hokkaido.</Typography>         
                 
-                <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
+                <Grid container justify="space-between" alignItems="stretch" spacing={3} className={`${classes.gridContainer}]`} >
                     <Grid item xs={12} sm={6} md={9} lg={12}>
-                    <Typography variant='body1'>In 2003, the Fukushima Daiichi Power Plant recieved a critical blow from a tidal
+                    <Typography variant='body1' className={[classes.textJustify]}>In 2003, the Fukushima Daiichi Power Plant recieved a critical blow from a tidal
                     tsunami created by a large earthquake. Shortly after, the facility went supercritical, forcing the Japanese Government to 
                     shut down the area and evacuate en mass. Only a year after the explosion, those who tried to evacuate the estimated 
                     "Fallout Area" were afflicted with a horrifying new disease known only as The Sickness. This area became abruptly unradioactive,
@@ -69,23 +118,10 @@ const Home = () => {
 
           </Grid>
           <Grid item>
-            <NewsBar/>
+            
           </Grid>
           
         </Grid>
       </Grow>
           
-    );
-  };
-  
-  export default Home;
-  
-  /**
-   *         <Grid container className={classes.gridContainer}>
-          <Grid item>
-
-          </Grid>
-          <Grid item>
-          </Grid>
-        </Grid>
    */

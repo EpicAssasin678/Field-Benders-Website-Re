@@ -95,10 +95,7 @@ const MediaInspector = ({media, tabAnchor}) => {
                         {item.description}
                     </Typography>
                     </CardContent>
-                    </Card>
-
-                
-                
+                    </Card> 
             ))}
         </>
     )

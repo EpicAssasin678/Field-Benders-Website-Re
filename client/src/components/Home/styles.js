@@ -9,11 +9,29 @@ export default makeStyles((theme) => ({
   Container: {
     //backgroundColor: 'yellow'
   },
+  //change the breakpoints if main div changed to center aligned item
   image: {
     maxHeight: '100%',
     maxWidth: '100%',
     objectFit: 'contain',
-     
+    
+    [theme.breakpoints.down('xs')]: {
+      minWidth: '50%',
+      minHeight: "100%"
+    },
+    [theme.breakpoints.down('md')]: {
+      minWidth: '50%',
+      minHeight: "100%"
+    }
+  },
+  flexCenter: {
+    [theme.breakpoints.down('xs')]: {
+      alignSelf: 'center',
+      
+    },
+    [theme.breakpoints.down('sm')]: {
+      alignSelf: 'center',
+    },
   },
   typography: {
     
@@ -34,5 +52,8 @@ export default makeStyles((theme) => ({
       flexDirection: 'column-reverse',
       
     },
+  },
+  textJustify : {
+    textAlign: "justify",
   },
 }));

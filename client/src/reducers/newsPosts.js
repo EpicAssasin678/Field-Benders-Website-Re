@@ -1,25 +1,28 @@
 import {FETCH_ALL, FETCH_POST, CREATE, DELETE} from '../constants/actionTypes';
 
-export default (state = { isLoading: true, newsposts:[] }, action) => {
+export default (state = { isLoading: true, newsPosts:[] }, action) => {
+    
     switch (action.type) {
         case 'START_LOADING':
+            console.log('START_LOADING of reducer called')
             return {...state, isLoading: true};
         case 'END_LOADING':
             return {...state, isLoading: false};
         case FETCH_ALL:
+            console.log('FETCH_ALL of reducer called')
             return {
                 ...state,
-                newsPost: action.payload.data,
+                newsPosts: action.payload.data,
                 currentPage: action.payload.currentPage,
                 numberOfPages: action.payload.numberOfPages,
             };
         case FETCH_POST: 
-            return {...state, post: action.payload.newsPost };
+            return {...state, newsPost: action.payload.newsPost }
         case CREATE: 
-            return { ...state, newsposts: [...state.newsposts, action.payload] };
+            return { ...state, newsPosts: [...state.newsPosts, action.payload] };
         case DELETE: 
-            return { ...state, newsposts: state.newsposts.filter((post) => post._id !== action.payload) };
+            return { ...state, newsPosts: state.newsPosts.filter((newsPost) => newsPost._id !== action.payload) };
         default:
             return state;
     }
-}
+};

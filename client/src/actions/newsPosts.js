@@ -5,19 +5,23 @@ import * as api from '../api/index.js';
 
 export const getNewsPost = (id) => async (dispatch) => {
     try {
+        console.log('actions: action getNewsPost was called');
+
         dispatch({ type: START_LOADING })
-        const { data } = await api.fetchPost(id);
-        dispatch({FETCH_POST, payload: { post: data }});
+        const { data } = await api.fetchNewsPost(id);
+        dispatch({type: FETCH_POST, payload: { newsPost: data }});
         console.log(`got pots ${data}`);
     } catch (error) {
         console.log(error);
     }
 };
 
-export const getPosts = (page) => async (dispatch) => {
+export const getNewsPosts = (page) => async (dispatch) => {
     try {
+        console.log('actions: action getNewsPosts was called');
+
         dispatch({ type: START_LOADING });
-        const {data : {data, currentPage, numberOfPages }} = await api.fetchPosts(page);
+        const {data : {data, currentPage, numberOfPages }} = await api.fetchNewsPosts(page);
 
         dispatch({ type: FETCH_ALL, payload: { data, currentPage, numberOfPages }});
         dispatch({ type: END_LOADING });
@@ -26,21 +30,25 @@ export const getPosts = (page) => async (dispatch) => {
     }
 };
 
-export const createPost = (post, history) => async (dispatch) => {
+export const createNewsPost = (newsPost, history) => async (dispatch) => {
     try {
+      console.log('actions: action createNewsPosts was called');
+
       dispatch({ type: START_LOADING });
-      const { data } = await api.createPost(post);
+      const { data } = await api.createNewsPost(newsPost);
   
       dispatch({ type: CREATE, payload: data });
   
-      history.push(`/posts/${data._id}`);
+      history.push(`/newsPosts/${data._id}`);
     } catch (error) {
       console.log(error);
     }
 };
 
-export const deletePost = (id) => async (dispatch) => {
+export const deleteNewsPost = (id) => async (dispatch) => {
     try {
+      console.log('actions: action deleteNewsPost was called');
+
       await await api.deletePost(id);
   
       dispatch({ type: DELETE, payload: id });

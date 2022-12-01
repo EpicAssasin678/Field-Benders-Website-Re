@@ -1,10 +1,9 @@
 
 import React, {useState, useRef} from 'react';
 
-import { Typography, Grid, Container,Slider, Box} from '@material-ui/core';
+import { Typography, Grid, Slider} from '@material-ui/core';
 
-import ListItemIcon from '@material-ui/icons/ListOutlined';
-import ListIcon from '@material-ui/icons/List';
+
 import PlayArrow from'@material-ui/icons/PlayArrow';
 import Pause from '@material-ui/icons/Pause';
 import VolumeDownRounded from '@material-ui/icons/VolumeDownRounded';

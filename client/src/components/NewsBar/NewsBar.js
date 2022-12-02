@@ -1,7 +1,7 @@
 //Have drawer that resizes and disappears for smaller devices
 import React, { useRef, useState } from 'react';
 import { Container, Grow, Grid, Paper, Typography, Fade} from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import useStyles from './styles';
@@ -9,6 +9,7 @@ import useStyles from './styles';
 
 import NewsPosts from '../NewsPosts/NewsPosts';
 import NewsPost from '../NewsPosts/NewsPost/NewsPost';
+import { getNewsPosts } from '../../actions/newsPosts';
 
 function useQuery() {
     
@@ -25,16 +26,24 @@ const NewsBar = () => {
 
     console.log(`NewsBar: ${useLocation().search} |  query=>${query}`);
     console.log(`searchquery: ${searchQuery}`);
+
+    //!let's try and make a solution for our bug of not loading newsPost data
+    const dispatch = useDispatch();
+    //!bug is caused by Redux not calling a get request when acessing state store, have to trigger generation manually
+    dispatch(getNewsPosts(page));
+
+    //console.log(useStore().getState())
     
     return (
         <>
         <Grow in>
             <Grid container direction={'row'}  className={classes.newsBar} justifyContent='center'>
-                <Typography variant='h3'>News Bar</Typography>
-                <Grid item>
-                    <NewsPosts setCurrentId={setCurrentId} />
-                    
-                </Grid>
+                <Paper elevation={4} className={classes.newsBarBackDrop} md={4} lg={4}>
+                    <Grid item>
+                        <Typography variant='h3' className={`font-hacked ${classes.newsBarTitle}`}>news_from_the_front</Typography>
+                        <NewsPosts setCurrentId={setCurrentId} />
+                    </Grid>
+                </Paper>
             </Grid>
         </Grow>
         </>

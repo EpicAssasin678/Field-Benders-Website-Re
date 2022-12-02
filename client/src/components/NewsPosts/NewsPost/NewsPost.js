@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 import useStyles from './styles';
 import { getNewsPost } from '../../../actions/newsPosts';
 
-const NewsPost = ({ newsPost, setCurrentId }) => {
+const NewsPost = ({ newsPost, setCurrentId, styleOptions}) => {
     
     const user = JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch();
@@ -30,12 +30,12 @@ const NewsPost = ({ newsPost, setCurrentId }) => {
 
                 <CardContent>
                     <div>
-                        <Typography color={'black'} variant='h1' className={[`newsPost-title`]}>{newsPost.title}</Typography>
-                        <Typography variant='h3' color ={'black'} className={['newsPost-date']}>{newsPost.date}</Typography>
+                        <Typography color={'black'} variant='h4' className={[`newsPost-title`, styleOptions.body]}>{newsPost.title}</Typography>
+                        <Typography variant='subtitle' color ={'black'} className={['newsPost-date', styleOptions.body]}>{newsPost.date}</Typography>
                     </div>
                 </CardContent>
                 <CardContent>
-                    <Typography paragraph variant='body1' className={['newsPost-body']}>{newsPost.information}</Typography>
+                        <Typography paragraph variant='body1' className={['newsPost-body', styleOptions.body]}>{newsPost.information}</Typography>
                 </CardContent>
 
   

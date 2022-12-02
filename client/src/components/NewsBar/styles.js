@@ -1,9 +1,22 @@
 import { makeStyles } from "@material-ui/core";
 
-export default makeStyles ((theme) => ({
+//constant values
+const backDropPadding = '2%';
 
-    newsBar : {
-        justifyContent: 'flex-end',
+export default makeStyles ((theme) => ({
+    newsBarTitle: {
+        
     },
+    newsBar : {
+        justifyContent: 'center',
+    },
+    newsBarBackDrop: {
+        paddingLeft: backDropPadding,
+        paddingRight: backDropPadding,
+        paddingBottom: backDropPadding,
+        [theme.breakpoints.down('xs')] : {
+            display: 'none'
+        }
+    }
 
 }));

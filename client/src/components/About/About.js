@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Container, Grow, Grid, TextField, Button, Paper, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory, useLocation } from 'react-router-dom';
@@ -17,19 +17,24 @@ import picture1 from '../../assets/img/illustrations/002.png';
 
 const About = () => {
     const classes = useStyles();
- 
-    const [currentId, setCurrentId] = useState(0);
+    const [currentFont, changeCurrentFont] = useState('Heebo');
     const dispatch = useDispatch();
     const history = useHistory();
-  
+
     const introduction_start = useRef(null);
-    
+
+
     //play audio upon entering
     //const [audio] = useState(new Audio(background_music).play());
     
-    function redisplayGrid (str) {
-
+    const handleFontButtonClick = (event) => {
+        
+        
     }
+
+    useEffect( ()=> {
+      
+    }, [currentFont])
     
     //TODO implement buttons
     return (
@@ -47,10 +52,10 @@ const About = () => {
             <Grid container justify="center" alignItems="stretch" spacing={3} className={classes.gridContainer}>
             
             <Grid item justifyContent='center' >
-              <Button className={'font-hacked'} onClick={redisplayGrid('hacked')}><p class="font-hacked button-text">This is HACKED</p></Button>
-              <Button className={'font-krishna'} onClick={redisplayGrid('hacked')}><p class="font-krishna button-text">This is krishna</p></Button>
-              <Button className={'font-swiss'} onClick={redisplayGrid('hacked')}><p class="font-swiss button-text">This is swiss721</p></Button>
-              <Button  className={['font-consolas', 'large']} onClick={redisplayGrid('hacked')}><p class="font-consolas button-text">This is consolas</p></Button>
+              <Button className={'font-hacked'} onClick={handleFontButtonClick('hacked')}><p class="font-hacked button-text">This is HACKED</p></Button>
+              <Button className={'font-krishna'} onClick={handleFontButtonClick('krishna')}><p class="font-krishna button-text">This is krishna</p></Button>
+              <Button className={'font-swiss'} onClick={handleFontButtonClick('swiss')}><p class="font-swiss button-text">This is swiss721</p></Button>
+              <Button  className={['font-consolas', 'large']} onClick={handleFontButtonClick('consolas')}><p class="font-consolas button-text">This is consolas</p></Button>
             </Grid>
             <Grid item>
 
@@ -61,19 +66,19 @@ const About = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={12} lg={12}>
-              <Typography variant='h1'>This is heading 1.</Typography>
+              <Typography variant='h1' className={`${currentFont}`}>This is heading 1.</Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={12} lg={12}>
-              <Typography variant='h2'>This is heading 2.</Typography>
+              <Typography variant='h2' className={`${currentFont}`}>This is heading 2.</Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={12} lg={12}>
-              <Typography variant='h3'>This is heading 3.</Typography>
+              <Typography variant='h3' className={`${currentFont}`}>This is heading 3.</Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={12} lg={12}>
-              <Typography variant='h4'>This is heading 4.</Typography>
+              <Typography variant='h4' className={`${currentFont}`}>This is heading 4.</Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-              <Typography variant='body1'>This is body.</Typography>
+              <Typography variant='body1' className={`${currentFont}`}>This is body.</Typography>
 
             </Grid>
             

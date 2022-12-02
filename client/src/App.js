@@ -21,16 +21,19 @@ const App = () => {
   
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  useEffect(() => {
-    function handleWindowResize() {
-    setWindowSize(getWindowSize());
-    localStorage.setItem('windowSize', getWindowSize())
-    console.log(`DEV: localStorage.windowSize(w,h) => [${windowSize.innerWidth},${windowSize.innerHeight}]`)
-    //console.log("DEV~Window was resized to: " + windowSize.innerWidth);
-    }
-    window.addEventListener('resize', handleWindowResize);
-    
-  }, []);
+  /**
+   useEffect(() => {
+     function handleWindowResize() {
+     setWindowSize(getWindowSize());
+     localStorage.setItem('windowSize', getWindowSize())
+     console.log(`DEV: localStorage.windowSize(w,h) => [${windowSize.innerWidth},${windowSize.innerHeight}]`)
+     //console.log("DEV~Window was resized to: " + windowSize.innerWidth);
+     }
+     window.addEventListener('resize', handleWindowResize);
+     
+   }, []);
+   * 
+   */
   
 
   

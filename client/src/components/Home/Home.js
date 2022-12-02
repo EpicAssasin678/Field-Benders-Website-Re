@@ -69,9 +69,8 @@ const Home = () => {
 
           </Grid>
           <Grid item>
-              <NewsBar />
+            <NewsBar />
           </Grid>
-          
         </Grid>
       </Grow>
           

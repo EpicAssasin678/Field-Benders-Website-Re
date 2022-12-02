@@ -16,7 +16,7 @@ export const getNewsPosts = async (req, res) => {
         const total = await NewsPost.countDocuments( {} );
         const newsPosts = await NewsPost.find().sort({ _id: -1 }).limit(LIMIT).skip(startIndex);
 
-        console.log(`BACKEND>controllers: ${newsPosts} \n PAGE:${page} `);
+        console.log(`BACKEND@${new Date().toISOString()}>controllers: ${newsPosts} \n PAGE:${page} `);
         
         res.json({ data : newsPosts, currentPage: Number(page), numberOfPages: Math.ceil(total/LIMIT)});
         

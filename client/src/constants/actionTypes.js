@@ -12,3 +12,9 @@ export const FETCH_BY_CREATOR = 'FETCH_BY_CREATOR';
 
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
+
+//creating temp newsPost exclusive actions 
+export const CREATE_NEWSPOST = 'CREATE';
+export const DELETE_NEWSPOST = 'DELETE';
+export const FETCH_ALL_NEWSPOSTS = 'FETCH_ALL_NEWSPOSTS';
+export const FETCH_NEWSPOST = 'FETCH_NEWSPOST';

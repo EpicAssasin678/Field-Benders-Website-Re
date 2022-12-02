@@ -3,8 +3,10 @@ import { FETCH_ALL, FETCH_BY_SEARCH, FETCH_BY_CREATOR, FETCH_POST, CREATE, UPDAT
 export default (state = { isLoading: true, posts: [] }, action) => {
   switch (action.type) {
     case 'START_LOADING':
+      console.log('POST REDUCERS: STARTED LOADING');
       return { ...state, isLoading: true };
     case 'END_LOADING':
+      console.log('POST REDUCERS: ENDED LOADING');
       return { ...state, isLoading: false };
     case FETCH_ALL:
       return {

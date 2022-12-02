@@ -4,6 +4,6 @@ import posts from './posts';
 import auth from './auth';
 import newsPosts from './newsPosts';
 
-export const reducers = combineReducers({ posts, newsPosts, auth });
+export const reducers = combineReducers({ newsPosts, posts,  auth });
 
 

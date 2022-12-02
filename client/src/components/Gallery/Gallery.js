@@ -30,6 +30,7 @@ const Gallery = () => {
   const history = useHistory();
 
   const searchPost = () => {
+    console.log('searchpost called');
     if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
       history.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);

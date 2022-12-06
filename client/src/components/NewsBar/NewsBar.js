@@ -11,6 +11,8 @@ import NewsPosts from '../NewsPosts/NewsPosts';
 import NewsPost from '../NewsPosts/NewsPost/NewsPost';
 import { getNewsPosts } from '../../actions/newsPosts';
 
+import './newsbar.css';
+
 function useQuery() {
     
     return new URLSearchParams(useLocation().search);
@@ -38,10 +40,18 @@ const NewsBar = () => {
         <>
         <Grow in>
             <Grid container direction={'row'}  className={classes.newsBar} justifyContent='center'>
-                <Paper elevation={4} className={classes.newsBarBackDrop} md={4} lg={4}>
+                <Paper elevation={4} className={[classes.newsBarBackDrop, 'newsbar']} md={4} lg={4}>
                     <Grid item>
-                        <Typography variant='h3' className={`font-hacked ${classes.newsBarTitle}`}>news_from_the_front</Typography>
-                        <NewsPosts setCurrentId={setCurrentId} />
+                        <Typography variant='h3' className={`font-hacked ${classes.newsBarTitle} white`}>news_from_the_front</Typography>
+                        <NewsPosts 
+                            setCurrentId={setCurrentId} 
+                            class='posts' 
+                            postStyleOptions={{
+                                body: 'newsbar-post-body font-consolas',
+                                subtitle: 'newsbar-post-subtitle font-consolas',
+                                title: 'newsbar-post-title swiss'
+                            }}
+                        />
                     </Grid>
                 </Paper>
             </Grid>
@@ -54,5 +64,5 @@ const NewsBar = () => {
 export default NewsBar;
 /**
  * console.log(`BACKEND>controllers/getNewsPosts: ${newsPosts} \nPAGE: ${page} `);
- * console.log(`BACKEND>controllers/getNewsPost: ${newsPost} `);
+ * console.log(`BACKEND>controllers/getNewsPost: ${newsPost} `);`${classes.newsBar} newsbar`
  */

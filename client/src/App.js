@@ -16,6 +16,8 @@ import About from './components/About/About';
 import Chapter1 from './components/Chapters/Chapter1/Chapter1';
 import Chapter4 from './assets/chapters/Chapter4';
 
+import Footer from './components/Footer/Footer';
+
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
   
@@ -66,6 +68,7 @@ const App = () => {
           
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/home" />)} />
         </Switch>
+        <Footer />
       </Container>
     </BrowserRouter>
 

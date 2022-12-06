@@ -1,0 +1,24 @@
+.footer {
+    margin-top: 5%;
+    width: 100%;
+
+    
+    border-radius: 6px;
+    
+}
+
+.footer>.avatar {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 20%;
+}
+
+@media (min-width: 640) {
+    .avatar {
+        margin-right: 0px;
+    }
+}
+
+/**
+*background-color: var(--primary_yellow) !important;
+*/

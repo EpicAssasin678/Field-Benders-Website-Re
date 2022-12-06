@@ -14,6 +14,8 @@ import getWindowSize from "../../App";
 import './chapters.css';
 import '../../assets/fonts/stylesheet.css';
 
+import backgroundVideo from '../../assets/vid/live_wallpaper.mp4';
+
 import chapterData from './ChapterData.json';
 
 //TODO make chapters meta stored in DB and create list that way
@@ -36,11 +38,10 @@ const Chapters = () => {
     
     return (
       <Grow in>
-        <Container className={classes.Container}>
-          
+        <Container className={[classes.Container, 'chapters-cont']}>
           {window.innerWidth < 540 ? (
-          <Typography className={'font-hacked'} align = 'left' variant='h3' xs={12}>CHAPTERS</Typography>)
-          :(<Typography className={'font-hacked'} align = 'center' variant='h3' xs={12}>CHAPTERS</Typography>
+          <Typography className={'font-hacked black'} align = 'left' variant='h3' xs={12}>CHAPTERS</Typography>)
+          :(<Typography className={'font-hacked black'} align = 'center' variant='h3' xs={12}>CHAPTERS</Typography>
           )}
 
           <Grid container justifyContent="center" alignItems="stretch" spacing={3} className={classes.gridContainer}>
@@ -54,11 +55,11 @@ const Chapters = () => {
                   <ListItem key={value}>
                     
                     <Button id={`button${chapters.indexOf(value)+1}`} component={Link} to={`/chapter${chapters.indexOf(value)+1}`}>
-                      <FolderIcon className='chapterlist-icon'/>
+                      <FolderIcon className='chapterlist-icon '/>
                     </Button>
                   
                     <ListItemText
-                    className={classes.chapterListItem}
+                    className={[classes.chapterListItem]}
                     primary={`Chapter ${chapters.indexOf(value)+1}`}
                     secondary= {value}
                     />
@@ -82,3 +83,5 @@ const Chapters = () => {
   
   export default Chapters;
   
+  //for other backgrounds
+  //<video src={backgroundVideo} className={'background-video'}></video>

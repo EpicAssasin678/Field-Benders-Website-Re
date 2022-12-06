@@ -8,6 +8,7 @@ import jfacLogo from '../../assets/img/logo/JFAC-logo.png';
 import fieldBendersLogo from '../../assets/img/logo/field_benders_logo.png';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
+import './appbar.css';
 
 const Navbar = (props) => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -40,7 +41,7 @@ const Navbar = (props) => {
   }, [location]);
 
   return (
-    <AppBar className={classes.appBar} position="static" color="inherit">
+    <AppBar className={`${classes.appBar} appbar`} position="static" color="inherit">
       <Link to="/">
         <img className = {classes.image} component={Link} to="/home" src={fieldBendersLogo} alt="icon" height="40px" />
       </Link>

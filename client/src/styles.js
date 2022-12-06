@@ -14,6 +14,12 @@ const hackedKerx = {
   `
 }
 
+export const palette = {
+  primaryRed: '#E9165F',
+  primaryYellow: '#E9DA16',
+  primaryBlue: '#165FE9',
+  primaryNeonGreen: '#5FE916'
+}
 
 export default makeStyles((theme) => ({
   [theme.breakpoints.down('sm')]: {

@@ -26,19 +26,12 @@ const NewsPost = ({ newsPost, setCurrentId, styleOptions}) => {
     console.log(`~DEV/post found: ${newsPost}` )
 
     return (
-        <Card raised elevation={6}>
-
+        <Card raised elevation={0} className='news-post-card'>
                 <CardContent>
-                    <div>
-                        <Typography color={'black'} variant='h4' className={[`newsPost-title`, styleOptions.body]}>{newsPost.title}</Typography>
-                        <Typography variant='subtitle' color ={'black'} className={['newsPost-date', styleOptions.body]}>{newsPost.date}</Typography>
-                    </div>
-                </CardContent>
-                <CardContent>
+                        <Typography variant='h4' className={[`newsPost-title`, styleOptions.title]}>{newsPost.title}</Typography>
+                        <Typography variant='subtitle' color ={'black'} className={['newsPost-date', styleOptions.subtitle]}>{newsPost.date}</Typography>
                         <Typography paragraph variant='body1' className={['newsPost-body', styleOptions.body]}>{newsPost.information}</Typography>
                 </CardContent>
-
-  
         </Card>
     );
 };

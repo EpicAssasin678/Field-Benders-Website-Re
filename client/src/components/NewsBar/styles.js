@@ -8,7 +8,8 @@ export default makeStyles ((theme) => ({
         
     },
     newsBar : {
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
+        
     },
     newsBarBackDrop: {
         paddingLeft: backDropPadding,

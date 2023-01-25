@@ -37,8 +37,6 @@ const App = () => {
    * 
    */
   
-
-  
   function getWindowSize() {
     const {innerWidth, innerHeight} = window;
     return {innerWidth, innerHeight};
@@ -71,11 +69,8 @@ const App = () => {
         <Footer />
       </Container>
     </BrowserRouter>
-
     
   );
 };
-
-
 
 export default App;

@@ -38,7 +38,7 @@ const Chapters = () => {
     
     return (
       <Grow in>
-        <Container className={[classes.Container, 'chapters-cont']}>
+        <Container className={[classes.Container, 'chapters-cont ']}>
           {window.innerWidth < 540 ? (
           <Typography className={'font-hacked black'} align = 'left' variant='h3' xs={12}>CHAPTERS</Typography>)
           :(<Typography className={'font-hacked black'} align = 'center' variant='h3' xs={12}>CHAPTERS</Typography>

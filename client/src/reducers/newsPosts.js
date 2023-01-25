@@ -1,6 +1,5 @@
 import {FETCH_ALL_NEWSPOSTS, FETCH_NEWSPOST, CREATE_NEWSPOST, DELETE_NEWSPOST} from '../constants/actionTypes';
 
-
 const newsPosts =(state = { isLoading: true, newsPosts:[] }, action) => {
     
     switch (action.type) {

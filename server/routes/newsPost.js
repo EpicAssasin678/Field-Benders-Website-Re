@@ -11,5 +11,4 @@ router.get('/:id', getNewsPost);
 router.post('/', createNewsPost);
 //router.patch('/:id', updateNewsPost);
 
-
 export default router;

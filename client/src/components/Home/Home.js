@@ -12,7 +12,6 @@ import useStyles from './styles';
 import './home.css';
 import '../../assets/fonts/stylesheet.css';
 
-import background_music from '../../assets/audio/mias3.mp3';
 import picture1 from '../../assets/img/illustrations/002.png';
 import picture2 from '../../assets/img/illustrations/far_off_01.png';
 import tokyoUpscale from '../../assets/img/illustrations/tokyo_upscale.jpg';
@@ -37,7 +36,6 @@ const Home = () => {
     
     
     return (
-
 
       <Grow in>
         

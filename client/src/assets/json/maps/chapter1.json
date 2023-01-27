@@ -2,7 +2,7 @@
     "media": [
         {
             "name": "Old Stories",
-            "path": "../../assets/mias3.mp3",
+            "path": "./audio/mias3.mp3",
             "alt" : "Old Stories",
             "type": "audio",
             "serverSide": false,
@@ -10,7 +10,7 @@
         },
         {
             "name": "Soma Area",
-            "path": "../../assets/img/illustrations/0005.png",
+            "path": "./img/Chapter01/0005.png",
             "alt" : "Soma Base",
             "type": "image",
             "serverSide": false,

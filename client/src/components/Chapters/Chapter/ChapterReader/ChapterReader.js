@@ -17,8 +17,8 @@ const ChapterReader = (props) => {
         <Grow in>
             <Container className={['container', classes.Container]}>
                 <Grid container justify='center' alignItems='stretch' spacing={3} className={classes.gridContainer}>
-                    
-            
+                            
+
                 </Grid>
 
 

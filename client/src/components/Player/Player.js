@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 
-export const useAudio = url => {
+export const useAudio = (url, playingToggle) => {
+  //playingToggle is for the use of another Element which is attached to the Component to pass a value which is watched for and changes the playing status
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(false);
 
   const toggle = () => setPlaying(!playing);
-
+  
   useEffect(() => {
       playing ? audio.play() : audio.pause();
     },
-    [playing]
+    [playing, playingToggle]
   );
 
   useEffect(() => {
@@ -20,15 +21,19 @@ export const useAudio = url => {
     };
   }, []);
 
-  console.log(audio);
+  console.log(`Music player state: song : ${audio} playing: ${playing} `);
   return [playing, toggle];
 };
 
 
 
-const Player = ({ url, wrappedPlayer, toggleRef }) => {
-  const [playing, toggle] = useAudio(url);
-  
+const Player = ({ url, wrappedPlayer, playingVal, toggleRef }) => {
+  const [playing, toggle] = useAudio(url, toggleRef);
+  //destructure stately values into the Player's state
+
+  useEffect(() => {
+    toggle();
+  }, {toggleRef})
   return (
     wrappedPlayer
   );

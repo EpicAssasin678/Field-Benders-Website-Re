@@ -1,8 +1,7 @@
 
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 
 import { Typography, Grid, Slider} from '@material-ui/core';
-
 
 import PlayArrow from'@material-ui/icons/PlayArrow';
 import Pause from '@material-ui/icons/Pause';
@@ -24,39 +23,58 @@ import Player, {useAudio} from '../../../../Player/Player';
 
 const MusicPanel = ({musicPlayer, trackMap}) => {
     //console.log(track);
-    const theme = useTheme();
+    const theme = useTheme(); 
     const lightIconColor = 'blue';
-
+    
     const classes = useStyles();
     //use a json file which maps the locations of mp3's to a name
-    const [song, changeTrack] = useState('none');
-    const [songStatus, changeSongStatus] = useState('play');
+    const songs = trackMap.map((media) => {
+        if (media.type == 'audio') {
+            return media;
+        } return null;
+    })
+    console.log(songs);
     
+    
+
+    const [song, changeTrack] = useState(songs[0].name);
+    const [songStatus, changeSongStatus] = useState('play');
+
     //load in the beggining track for the player 
     console.log(trackMap);
 
     const playButtonRef = useRef();
     //const [playing, toggle] = useAudio(track);
+    const toggle = () => {
+    
+    }
 
     const handleChange = (event, state) => {
         
     }
+
+    
+    
+   /*  useEffect(() => {
+        song.addEventListener('ended', () => changeSongStatus('pause'));
+        return () => {
+          song.removeEventListener('ended', () => changeSongStatus('pause'));
+        };
+      }, []); */
 
     //const [playing, toggle] = useAudio(track);
     //const [audio] = useState(new Audio(track).play());
     
     const handlePlayClick = (event) => {
         let playButtonState = playButtonRef.current.value;
-        console.log(`${song} set to ${playButtonState}`);
-        if (playButtonState == 'play') {
+        if (playButtonState === 'play') {
             changeSongStatus('pause');
-            //console.log(playing);
         }
         else {
             changeSongStatus('play')
             //toggle();
         };
-        //handle further logic like track skipping
+        console.log(`${song} set to ${playButtonState}`);
         
         /**
          playButtonState = playButtonState == 'play' ? (
@@ -69,16 +87,16 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
     
     return (
         <div>
-
             <Grid container direction={{xs: 'column', md: 'row', lg: 'row'}} spacing={2} justifyContent={'center'}>
 
                 <Grid item>
-                    <Typography variant='body1' align='center'>Music Status: {songStatus}</Typography>
+                    <Typography variant='body1' align='center'> Music Status: {songStatus}</Typography>
                     <Typography variant='body1' align= 'center'>Track Title: {song}</Typography>
                 </Grid>
-
-                <Grid item>
-                    <Player url={trackMap[0].path} wrappedPlayer={    
+                <Player 
+                    url={songs[0].path}
+                    toggleRef= {songStatus}
+                    wrappedPlayer={(
                         <ToggleButtonGroup
                         orientation='horizontal'
                         value='default'
@@ -86,18 +104,21 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
                         onChange={handleChange}
                         className={classes.playControls}>
                             <ToggleButton  value={songStatus} onClick={handlePlayClick} ref={playButtonRef}>
-                                {songStatus == 'play' ? (
+                                {songStatus === 'play' ? (
                                     <PlayArrow sx={{width:'inherit', color:'black'}} fontSize='small' htmlColor='blue'/>
                                 ):(<Pause fontSize='small' htmlColor='blue'/ >
                                 )}
                             </ToggleButton>
                         </ToggleButtonGroup> 
-                        }/>
-                        </Grid>
+                    )}                
+                />
+                </Grid>
+                <Grid item>  
                         
                 <Grid container>
 
                     <Slider
+                        
                         className={classes.volumeComponent}
                         aria-label="Volume"
                         defaultValue={30}
@@ -120,8 +141,6 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
                     />    
                 </Grid>
                         
-
-
             </Grid>
         </div>
     )
@@ -130,25 +149,6 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
 export default MusicPanel;
 
 /**
- * 
- * 
-         <Grid container direction={{xs:'column', md:'row'}} spacing={2}>
-            <Typography variant='body1' align='center'>Music Status: {songStatus}</Typography>
-            <Typography variant='body1' align= 'center'>Track Title: {song}</Typography>
-            <ToggleButtonGroup
-            orientation='horizontal'
-            value='default'
-            exclusive
-            onChange={handleChange}
-            className={classes.playControls}>
-                <ToggleButton value="play" >
-                    <PlayArrow sx={{width:'inherit', color:'black'}} fontSize='small' htmlColor='blue'/>
-                </ToggleButton>
-                <ToggleButton value="pause" >
-                    <Pause fontSize='small' htmlColor='blue'/>
-                </ToggleButton>
-            </ToggleButtonGroup>
 
-        </Grid>
 
  */

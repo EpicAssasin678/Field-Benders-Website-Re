@@ -12,7 +12,6 @@ import useStyles from './styles';
 import './about.css';
 import '../../assets/fonts/stylesheet.css';
 
-import background_music from '../../assets/audio/mias3.mp3';
 import picture1 from '../../assets/img/illustrations/002.png';
 
 const About = () => {

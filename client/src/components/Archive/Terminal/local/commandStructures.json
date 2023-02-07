@@ -1,0 +1,10 @@
+{
+    "echo" : {
+        "args" : {
+            "default" : {
+                "input" : "str"
+            }
+            
+        }
+    }
+}

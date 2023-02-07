@@ -9,10 +9,15 @@ export type TerminalPushToHistoryWithDelayProps = {
 
 
 export type TerminalCommands = {
-  [command: string]: () => void;
+  [command: string ]: () => void;
 };
 
+
+
+
+
 export type TerminalProps = {
+  args?: string[];
   history: TerminalHistory;
   promptLabel?: TerminalHistoryItem;
   commands: TerminalCommands;

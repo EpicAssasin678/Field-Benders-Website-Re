@@ -10,17 +10,17 @@ const Archive = () => {
 
     return (
         <>
-            
-            <Grid container className={[classes.gridContainer]} xs={12} justifyContent={'center'}>
-                <Grid item>
-                    <Typography variant='h1' className={`font-hacked black`}>Archive</Typography>
-                    
-                </Grid>
-            </Grid>
-                    <TerminalRunner />
-                
+        
+            <TerminalRunner class='crt'/>    
         </>
     );
 }
 
 export default Archive;
+
+/**
+ *                 <Grid item>
+                    <Typography variant='h1' className={`font-hacked black`}>Archive</Typography>
+                    
+                </Grid>
+ */

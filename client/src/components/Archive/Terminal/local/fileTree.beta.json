@@ -1,0 +1,34 @@
+{
+    "syslin" : {
+        "directory" : {
+            "users" : {
+                "directory": {
+                    "admin" : {
+                        "admin.prf": {
+                            "name" : "admin.prf",
+                            "type" : "text/encrypted"
+                        },
+                        "admin.ppk": {
+                            "name" : "admin.ppk",
+                            "type" : null
+                        },
+                        "admin.h": {
+                            "name" : "admin.h",
+                            "type" : "text/encrypted"
+                        }
+                    },
+                    "surikaga_raiku@JFAC-S89" : {
+                        "surikaga_raiku@JFAC-S89.prf" : {
+                            "name" : "surikaga_raiku@JFAC-S89.prf",
+                            "type" : "text/encrypted"
+                        },
+                        "surikaga_raiku@JFAC-S89.h" : {
+                            "name" : "surikaga_raiku@JFAC-S89.h",
+                            "type" : "text/encrypted"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

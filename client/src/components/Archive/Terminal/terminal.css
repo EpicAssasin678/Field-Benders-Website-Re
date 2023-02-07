@@ -1,5 +1,10 @@
 .terminal {
-    overflow-y: auto;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow-y: overlay;
+    overflow: hidden;
     background-color: #000000;
     color: #ffffff;
     padding: 35px 45px;
@@ -8,6 +13,10 @@
     font-family: 'IBM Plex Mono', Consolas, Menlo, Monaco, 'Courier New', Courier,
     monospace;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    /* left: 200px; */
+    z-index: 1;
+    bottom: -69px;
+    right: -80px;
 }
 
 .terminal__line {
@@ -53,3 +62,9 @@
 .terminal__prompt__input::before {
     content:'\00263A';
 }
+
+.terminal__link {
+    color: #ffffff;
+    text-decoration: none;
+}
+

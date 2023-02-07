@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import Archive from './components/Archive/Archive';
 import Admin from './components/Admin/Admin';
 import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
@@ -17,6 +18,7 @@ import Chapter1 from './components/Chapters/Chapter1/Chapter1';
 import Chapter4 from './assets/chapters/Chapter4';
 
 import Footer from './components/Footer/Footer';
+import Chapter from './components/Chapters/Chapter/Chapter';
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -50,6 +52,7 @@ const App = () => {
           <Route path="/admin" exact component={Admin}/>
 
           <Route path="/" exact component={() => <Redirect to="/home" />} />
+
           <Route path="/home" exact component={Home} />
           
           <Route path="/about" exact component={About} />
@@ -64,6 +67,7 @@ const App = () => {
           <Route path="/posts/:id" exact component={PostDetails} />
           <Route path={['/creators/:name', '/tags/:name']} component={CreatorOrTag} />
           
+          <Route path="/archive" exact component={Archive} />
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/home" />)} />
         </Switch>
         <Footer />

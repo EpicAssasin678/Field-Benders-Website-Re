@@ -30,3 +30,12 @@ Currently, the way the client is routing the information is incorrect, as we hav
 
 Rather than cannabilizing and modding code from 'Post' and 'Gallery', we should create new XMLHTTPRequest bodies.
 
+## 2/6/23 
+### Fixing issue with the audioPanel and Player components.
+Currently, their exists two issues:
+1) The Slider component re-renders far too often for each change in the slide state, the entire panel seems to re-render.
+2) Audio from the chapter can persist when leaving the Chapter component. If not paused before you leave, the component continues to play. 
+
+#2 is the worst. This is particularly problematic because of potential memory leaks. Especially considering the fact that I would eventually like to have a trackMap that is persistent throughout the chapter itself and doesn't escape the component itself. Therefore, this bug is priority #1.
+
+Changing the actual Audio panel itself seems to be the most reasonable although my system should've worked and been recylcleable to plug in with any component. 

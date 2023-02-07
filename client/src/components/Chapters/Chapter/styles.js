@@ -3,8 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   
+  betaDisclaimer: {
+    margin: '2.5%',
+  },
   Container: {
     justifyContent: 'center',
+  },
+  //notworking
+  chapterWrapper : {
+    //position: 'absolute',
+    //objectFit: 'cover',
+    width: '10%'
   },
   image: {
     maxHeight: '100%',
@@ -16,6 +25,9 @@ export default makeStyles((theme) => ({
 
   },
   typography: {
+    
+  },
+  controlPanel: {
     
   },
     appBarSearch: {

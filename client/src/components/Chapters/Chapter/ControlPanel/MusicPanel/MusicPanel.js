@@ -35,35 +35,18 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
     })
     console.log(songs);
     
+    //for volume slider
     
-
     const [song, changeTrack] = useState(songs[0].name);
     const [songStatus, changeSongStatus] = useState('play');
+    const [volume, changeVolume] = useState(50);
 
+    const playing = false;
     //load in the beggining track for the player 
     console.log(trackMap);
 
     const playButtonRef = useRef();
-    //const [playing, toggle] = useAudio(track);
-    const toggle = () => {
-    
-    }
 
-    const handleChange = (event, state) => {
-        
-    }
-
-    
-    
-   /*  useEffect(() => {
-        song.addEventListener('ended', () => changeSongStatus('pause'));
-        return () => {
-          song.removeEventListener('ended', () => changeSongStatus('pause'));
-        };
-      }, []); */
-
-    //const [playing, toggle] = useAudio(track);
-    //const [audio] = useState(new Audio(track).play());
     
     const handlePlayClick = (event) => {
         let playButtonState = playButtonRef.current.value;
@@ -75,16 +58,8 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
             //toggle();
         };
         console.log(`${song} set to ${playButtonState}`);
-        
-        /**
-         playButtonState = playButtonState == 'play' ? (
-             playButtonState == 'pause';
-             console.log('Play button state was changed to pause.');
-         ) : ();
-         * 
-         */
     }
-    
+
     return (
         <div>
             <Grid container direction={{xs: 'column', md: 'row', lg: 'row'}} spacing={2} justifyContent={'center'}>
@@ -95,13 +70,13 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
                 </Grid>
                 <Player 
                     url={songs[0].path}
-                    toggleRef= {songStatus}
+                    songStatus = {songStatus}
+                    songVolume = {volume}
                     wrappedPlayer={(
                         <ToggleButtonGroup
                         orientation='horizontal'
                         value='default'
                         exclusive
-                        onChange={handleChange}
                         className={classes.playControls}>
                             <ToggleButton  value={songStatus} onClick={handlePlayClick} ref={playButtonRef}>
                                 {songStatus === 'play' ? (
@@ -118,7 +93,9 @@ const MusicPanel = ({musicPlayer, trackMap}) => {
                 <Grid container>
 
                     <Slider
-                        
+                        value={volume}
+                        onChange={(_, value) => changeVolume(value)}
+                        valueLabelDisplay = "auto"
                         className={classes.volumeComponent}
                         aria-label="Volume"
                         defaultValue={30}

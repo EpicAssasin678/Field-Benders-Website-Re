@@ -19,6 +19,7 @@ import ReaderControls from './ReaderControls/ReaderControls';
 //change to modular statement
 import MediaMap from '../../../../assets/json/maps/chapter1.json';
 
+
 const createTrackMap = (mediaMap) => {
 
 }

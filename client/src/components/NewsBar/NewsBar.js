@@ -33,7 +33,6 @@ const NewsBar = () => {
     const dispatch = useDispatch();
     //!bug is caused by Redux not calling a get request when acessing state store, have to trigger generation manually
     dispatch(getNewsPosts(page));
-
     //console.log(useStore().getState())
     
     return (
@@ -58,7 +57,6 @@ const NewsBar = () => {
         </Grow>
         </>
     )
-    
 }
 
 export default NewsBar;

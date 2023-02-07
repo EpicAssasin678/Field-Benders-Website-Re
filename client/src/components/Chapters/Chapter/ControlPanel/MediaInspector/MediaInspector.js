@@ -110,28 +110,9 @@ const MediaInspector = ({media, tabAnchor}) => {
 
     return (
         <>
-         {loadImages(media)}
 
-            {media.forEach((item) => (
-                    <Card sx={{ maxWidth: 345 }}>
-                    <CardActionArea>
-                        <CardMedia
-                        component="img"
-                        height="140"
-                        image={item.path}
-                        alt={item.alt}
-                        />
-                    </CardActionArea>
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {item.name}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                        {item.description}
-                    </Typography>
-                    </CardContent>
-                    </Card> 
-            ))}
+            {loadImages(media)}
+
         </>
     )
 }

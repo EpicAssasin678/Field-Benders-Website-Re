@@ -59,9 +59,6 @@
     color: #ffffff;
 }
 
-.terminal__prompt__input::before {
-    content:'\00263A';
-}
 
 .terminal__link {
     color: #ffffff;

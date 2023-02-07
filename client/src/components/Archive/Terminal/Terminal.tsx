@@ -55,10 +55,10 @@ export const Terminal = forwardRef(
     const parseCommands = (input:string, memo = {
       commandStack: [],
       commandTree: {
-        command: [],
-        args: []
+        command: Array<any>(),
+        args: Array<any>()
       }
-    }) => {
+    }): any => {
       /**
        * if ( check for )
        *  else check for - or --
@@ -66,7 +66,7 @@ export const Terminal = forwardRef(
        * 
        */
       let commandStack = memo.commandStack;
-      let tokenizedInput = input.split('(');
+      let tokenizedInput = input.trim().split('(');
       console.log(tokenizedInput);
       let commandTree = memo.commandTree;
       if (commands?.[tokenizedInput[0]]) {
@@ -108,7 +108,7 @@ export const Terminal = forwardRef(
             let parsedInput = parseCommandsWrapper(input);
             commandToExecute = commands?.[parsedInput.command[0]];
             if (commandToExecute) {
-              commandToExecute?.();
+              commandToExecute?.(parsedInput.args[0]);
               setInputValue('');
             }
             setInputValue('');

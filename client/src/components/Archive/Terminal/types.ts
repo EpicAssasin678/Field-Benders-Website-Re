@@ -8,12 +8,12 @@ export type TerminalPushToHistoryWithDelayProps = {
 };
 
 
+
 export type TerminalCommands = {
-  [command: string ]: () => void;
+  [command: string ]: () => void ;
+} | {
+  [command: string ]: (input:any) => any;
 };
-
-
-
 
 
 export type TerminalProps = {

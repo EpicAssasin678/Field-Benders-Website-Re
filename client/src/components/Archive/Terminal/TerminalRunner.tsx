@@ -18,6 +18,7 @@ export function TerminalRunner() {
       resetTerminal,
     } = useTerminal();
     
+
     //const input = useContext(InputContext);
     const parsedFileTree = JSON.stringify(fileTree, null, 2);
     //create temp variables for simulated directory
@@ -27,7 +28,7 @@ export function TerminalRunner() {
       abs: `system/Home/Users/${user[0]}`
     }
     var userDetails = [user, '@', userLocation.rel,];
-
+    var sessionTime;
     const SessionMessage = () => {
       let date = new Date().toUTCString().split(' ');
       const session_stamp = date.slice(1,-1).map( (string) => {
@@ -37,6 +38,7 @@ export function TerminalRunner() {
           return '2044';
         }
       });
+      sessionTime = session_stamp;
       return (<>
           <div><strong className='crt'>JFAC SECURTIY TERMINAL:</strong> session@{session_stamp.join('-')}</div>
           <div>Logged in as: usr_ADMIN</div>
@@ -86,12 +88,13 @@ export function TerminalRunner() {
           </>)
         })
       },
-      'echo': async () => {
+      'echo': async (input) => {
         await Promise.resolve(
+          //check to see input
           pushToHistory( <>
-            {document.getElementById('input').value}
-            {}
+            {input}
           </>
+          
         ))
       },
       'cd' : async () => {
@@ -118,7 +121,9 @@ export function TerminalRunner() {
               userLocation.abs.split('/').reverse().map((dir) => {
                 let hit = false;
                 while(!hit) {
-                  if (parsedFileTree.indexOf(dir).
+                  if (parsedFileTree.indexOf(dir)) {
+
+                  }
                 }
                 jsonstr += parsedFileTree.slice(parsedFileTree.indexOf(dir));
               });
@@ -144,7 +149,7 @@ export function TerminalRunner() {
           
           history={history}
           ref={setTerminalRef}
-          promptLabel={<>{userDetails.join('')}</>}
+          promptLabel={<>{`[ @${userDetails[0]}`}</>}
           commands={commands}
         />
       </div>

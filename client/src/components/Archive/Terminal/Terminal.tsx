@@ -11,14 +11,13 @@ export const Terminal = forwardRef(
       history = [],
       promptLabel = '>',
       args = [],
-      
+      memory = [],
       commands = {},
     } = props;
 
     const inputRef = useRef<HTMLInputElement>();
     const [input, setInputValue] = useState<string>('');
     
-
     /**
      * Focus on the input whenever we render the terminal or click in the terminal
      */
@@ -53,7 +52,7 @@ export const Terminal = forwardRef(
      * @param input 
      */
     const parseCommands = (input:string, memo = {
-      commandStack: [],
+      commandStack: Array<any>(),
       commandTree: {
         command: Array<any>(),
         args: Array<any>()
@@ -65,6 +64,7 @@ export const Terminal = forwardRef(
        *   then check or none or ""
        * 
        */
+      console.log(input)
       let commandStack = memo.commandStack;
       let tokenizedInput = input.trim().split('(');
       console.log(tokenizedInput);
@@ -72,6 +72,12 @@ export const Terminal = forwardRef(
       if (commands?.[tokenizedInput[0]]) {
         console.log(`command found: ${tokenizedInput[0]}`);
         commandStack.push(tokenizedInput[0]);
+        //['('].concat(tokenizedInput.slice(1)).join('')
+        //we check if the statement is reduced or not to a simple prompt
+        if (tokenizedInput.length > 2) {
+
+          return parseCommands(tokenizedInput.slice(1).join('(').slice(0, -1), {commandStack, commandTree});
+        }
         return parseCommands(tokenizedInput[1], {commandStack, commandTree});
       } 
       if (tokenizedInput[0].includes(')')) {
@@ -88,10 +94,60 @@ export const Terminal = forwardRef(
       console.log(commandTree);
       console.log(commandStack);
       return commandTree;
+
     }
 
     const parseCommandsWrapper = (input:string) => {
       return parseCommands(input, {commandStack: [], commandTree: {command: [], args: []} });
+    }
+
+    const executeCommands = (input:any, step:number) => {
+      let executionStep = step;
+
+      console.log(input);
+        var commandToExecute = commands?.[input.toLowerCase()];
+        if (commandToExecute) {
+          commandToExecute?.(null);
+          setInputValue('');
+        } else {
+          if (step == 0) {
+            
+          let parsedInput = parseCommandsWrapper(input);
+          commandToExecute = commands?.[parsedInput.command[0]];
+            if (commandToExecute) {
+              let commandOutput = commandToExecute?.(parsedInput.args[0]);
+              console.log(commandOutput);
+              //if there is still more left to execute
+              if (parsedInput.command.length > 1) {
+                //remove top, set arg to recent output
+                parsedInput.command.pop();
+                parsedInput.args[0] = commandOutput;
+                console.log(parsedInput);
+                executeCommands(parsedInput,step++);
+              }
+  
+            }
+          } else {
+
+            commandToExecute = commands?.[input.command[0]];
+            if (commandToExecute) {
+              let commandOutput = commandToExecute?.(input.args[0]);
+              console.log(commandOutput);
+              //if there is still more left to execute
+              if (input.command.length > 1) {
+                //remove top, set arg to recent output
+                input.command.pop();
+                input.args[0] = commandOutput;
+                console.log(input);
+                step += 1;
+                executeCommands(input,step);
+              }
+            }
+          }
+          
+          setInputValue('');
+        }
+      
     }
 
     /**
@@ -100,19 +156,7 @@ export const Terminal = forwardRef(
     const handleInputKeyDown = useCallback(
       (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
-          var commandToExecute = commands?.[input.toLowerCase()];
-          if (commandToExecute) {
-            commandToExecute?.();
-            setInputValue('');
-          } else {
-            let parsedInput = parseCommandsWrapper(input);
-            commandToExecute = commands?.[parsedInput.command[0]];
-            if (commandToExecute) {
-              commandToExecute?.(parsedInput.args[0]);
-              setInputValue('');
-            }
-            setInputValue('');
-          }
+          executeCommands(input,0);
         }
       },
       [commands, input]

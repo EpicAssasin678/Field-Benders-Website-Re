@@ -39,3 +39,51 @@ Currently, their exists two issues:
 #2 is the worst. This is particularly problematic because of potential memory leaks. Especially considering the fact that I would eventually like to have a trackMap that is persistent throughout the chapter itself and doesn't escape the component itself. Therefore, this bug is priority #1.
 
 Changing the actual Audio panel itself seems to be the most reasonable although my system should've worked and been recylcleable to plug in with any component. 
+
+## 2/7/23 
+### Creating the Terminal Emulator
+I followed the work done on a React-based terminal emulator that was done in the past. Unfortunately, I need something different and for myself. For the best results, the terminal emulator should have these features:
+
+1) A pseudo-file system (or a fake one)
+2) Commands with parameters
+3) Interpreting nested commands
+4) Stateful output fields
+5) HTML element output
+6) *Unnecessary:* Piping features.
+
+The hardest portion of the terminal emulator from a programming perspective, is the command parsing. Ideally, a parser capable of handling commands in a perfect BNF fashion would allow us to nest commands as deep and as versatile as possible. Unfortunately, I believe this would be time consuming and would require some type checking, metadata system, or stdin and stdout to be implemented which essentially means I am creating an entire interpreter from the ground up. Not to mention this approach while being the most useful, would be hard to visualize as to which portion of the program the actual execution is dependant upon. 
+
+The ideal system would theoretically look as such:
+    
+    parsePrompt(prompt, memo) {
+        if (prompt.trim().split(' ').length() > 1)
+            let separated = prompt.trim().split(INPUT_SEPARATOR)
+                if (prompt.trim().split(INPUT_SEPARATOR).length()>1)
+                    if(!(commands?.[separated[0].trim()]): 
+                        memo.args.push[separated[1].trim()]
+                        return parsePrompt(prompt, memo)
+                if (the prompt has a command)
+                    memo.command.push[separated[0].trim()]
+                if (pipe)
+                    do pipe code 
+            //check for more nesting, or don't 
+        return memo
+    }
+
+    parser -> execution loop -> display loop
+
+
+But this system would be entirely more complicated without creating a system for piping. If we had unlimited nesting features, the decision tree would be quite large. For my simple purposes, I am going to introduce piping as a way to chain commands.
+
+Want to leverage the ES6 `Promise()` api by creating a factory of type `<name> = () => Promise<type>()` which could just do standard in and out for me! 
+
+> Idea: create a system which allows for saving of aliases, then can use the raw, outputted data for an alias
+
+Alias system could be:
+
+    alias(<var_name>) > command(input)
+
+    alias = () => { aliasMap.push "<var_name>":<value> }
+
+
+Either way, the current strategy is to create pseudo file Tree:

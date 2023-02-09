@@ -21,4 +21,5 @@ export type TerminalProps = {
   history: TerminalHistory;
   promptLabel?: TerminalHistoryItem;
   commands: TerminalCommands;
+  memory: Array<any>;
 };

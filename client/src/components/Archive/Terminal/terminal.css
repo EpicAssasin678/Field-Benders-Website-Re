@@ -17,6 +17,9 @@
     z-index: 1;
     bottom: -50px;
     right: -80px;
+
+    --code-text-color : rgb(206, 59, 59);
+    --code-highlight-color: rgba(180, 180, 180, 0.541);
 }
 
 .terminal__line {
@@ -32,6 +35,7 @@
 .terminal__prompt__label {
     flex: 0 0 auto;
     color: #F9EF00;
+    
 }
 
 .terminal__prompt__input {
@@ -75,5 +79,47 @@
 .memory-buffer-line>span::after {
     content: ' ';
 
+}
+
+
+.help {
+    
+}
+
+.help>.heading {
+
+}
+
+.help>.line {
+
+}
+
+.standard.emphasized {
+
+}
+
+.terminal-text {
+    color: white;
+}
+
+.standard.codereference {
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 3px;
+    color: rgb(255 255 255);
+    background-color: rgb(255 0 0 / 54%);
+}
+
+.help>.subheading {
+    
+}
+
+.command-highlight {
+    font-weight: 600;
+    color: rgb(27, 245, 245);
+}
+
+.type-highlight {
+    color: rgb(255, 166, 1);
 }
 

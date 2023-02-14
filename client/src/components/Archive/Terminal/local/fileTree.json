@@ -1,8 +1,8 @@
 {
-    "system" : {
-        "syslin256" : {
-            "users" : {
-                "admin" : {
+    "system" : [{
+        "syslin256" : [{
+            "users" : [{
+                "admin" : [{
                     "admin.prf": {
                         "name" : "admin.prf",
                         "type" : "text/encrypted"
@@ -15,8 +15,8 @@
                         "name" : "admin.h",
                         "type" : "text/encrypted"
                     }
-                },
-                "surikaga_raiku@JFAC-S89" : {
+                }],
+                "surikaga_raiku@JFAC-S89" : [{
                     "surikaga_raiku@JFAC-S89.prf" : {
                         "name" : "surikaga_raiku@JFAC-S89.prf",
                         "type" : "text/encrypted"
@@ -25,24 +25,35 @@
                         "name" : "surikaga_raiku@JFAC-S89.h",
                         "type" : "text/encrypted"
                     }
-                }
-            }
-        },
-        "Home" : {
-            "Users" : {
-                "admin" : {
-                    "Documents" : {
+                }]
+            }]
+        }],
+        "Home" : [{
+            "Users" : [{
+                "admin" : [{
+                    "Documents" : [{
                         "operations_list.txt" : {
                             "name" : "operations_list.txt",
                             "type" : "text",
                             "path" : "./"
+                        },
+                        "agreement.txt" : {
+                            "name" : "operations_list.txt",
+                            "type" : "text",
+                            "path" : "./"
                         }
+                    }],
+                    "Pictures" : [{
+                        
+                    }],
+                    "note_to_admin.txt" : {
+                        
                     }
-                }
-            }
-        }
+                }]
+            }]
+        }]
 
-    }
+    }]
     
 }
 

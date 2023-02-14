@@ -44,12 +44,17 @@ export const Terminal = forwardRef(
     //TODO implement shotgun parsing
     //TODO implement piping
     //TODO implement flags
+    //TODO implement new argument system
     /**
      * input ::=> input | input + <command>
      * command : str | str + ( + <arg> + )
      * arg : str 
      * 
+     * Parses commands in the form of [aA-zZ]*[(] into an array and creates
+     * a tree of execution for the prompt runner.
+     * 
      * @param input 
+     * @param memo
      */
     const parseCommands = (input:string, memo = {
       commandStack: Array<any>(),
@@ -75,14 +80,23 @@ export const Terminal = forwardRef(
         //['('].concat(tokenizedInput.slice(1)).join('')
         //we check if the statement is reduced or not to a simple prompt
         if (tokenizedInput.length > 2) {
-
           return parseCommands(tokenizedInput.slice(1).join('(').slice(0, -1), {commandStack, commandTree});
         }
         return parseCommands(tokenizedInput[1], {commandStack, commandTree});
       } 
       if (tokenizedInput[0].includes(')')) {
-        console.log(`arg found: ${tokenizedInput[0].slice(0,-1)}`);
-        commandTree.args.push(tokenizedInput[0].slice(0,-1));
+        //check for multiple item values
+        if (tokenizedInput[0].match(new RegExp('\([ ]*(([aA-zZ]+)([ ]*, )*)+[ ]*\)'))) {
+          console.log(`arg list found: `);
+          let arglist = tokenizedInput[0].split(')')[0].split(',');
+          commandTree.args = arglist;
+        } else {
+          console.log(`arg found: ${tokenizedInput[0].slice(0,-1)}`);
+          commandTree.args.push(tokenizedInput[0].slice(0,-1));
+        }
+
+        //todo make possible (args => command, arg1, arg...)
+        //check if their are multiple args within the statement
       }
       
       commandStack.forEach((command) => {
@@ -111,7 +125,7 @@ export const Terminal = forwardRef(
           setInputValue('');
         } else {
           if (step == 0) {
-            
+          
           let parsedInput = parseCommandsWrapper(input);
           commandToExecute = commands?.[parsedInput.command[0]];
             if (commandToExecute) {
@@ -125,8 +139,8 @@ export const Terminal = forwardRef(
                 console.log(parsedInput);
                 executeCommands(parsedInput,step++);
               }
-  
             }
+
           } else {
 
             commandToExecute = commands?.[input.command[0]];
@@ -210,3 +224,14 @@ export const Terminal = forwardRef(
         }
       });
  */
+
+      /**
+       * 
+       * 
+       * Parse commands
+       *  separate command = [keyword](
+       *  regex: [aA-zZ]*[(]
+       * 
+       * command args inclusive 
+       * regex:\([ ]*(([aA-zZ]*)[, ]*)*[ ]*\)
+       */

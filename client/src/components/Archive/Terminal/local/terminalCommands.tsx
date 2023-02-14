@@ -1,3 +1,9 @@
+import React from 'react';
+import {useMemo} from 'react';
+
+
+
+/**
 import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {Terminal} from './Terminal';
 import {useTerminal} from './hooks';
@@ -9,7 +15,6 @@ import {terminalConfig} from './local/terminalConf';
 import fileTree from './local/fileTree.json';
 import { InputContext } from './InputContext';
 import { parseJsonText } from 'typescript';
-import { help } from './Interfaces/Help/Help';
 
 //TODO change all initialized values for term to be handled by a ref, only loaded if changed 
 export function TerminalRunner() {
@@ -22,6 +27,7 @@ export function TerminalRunner() {
       resetTerminal,
     } = useTerminal();
     
+
     //const input = useContext(InputContext);
     //create temp variables for simulated directory and user system
     var workingDirectory:any;
@@ -73,14 +79,11 @@ export function TerminalRunner() {
           <div>Logged in as: usr_ADMIN</div>
       </>)
     };
-    /**
-     * creating simulated system variables
-     *  standardOutput = holding outs of prompts
-     */
+
     
     var memorySize = 10;
     var outputMemory = Array<any>();
-
+    
     const pushToMemory = (item:any) => {
       if (!(item === null)) {
         let itemType = typeof(item);
@@ -101,93 +104,16 @@ export function TerminalRunner() {
         console.log('Null item being pushed to memory: TO TURN OFF NULL PUSHING USE CONF')
       }
     };
-
-    const getDirectoryContents:any = (dir:string) => {
-          
-      let loc = dir.trim().split('/');
-      let depth = 0;
-
-      let currentPath: string[] = userLocation.abs.split('/');
-      let designatedPath: string[] = [];
-      let dirToDisplay:any;
-
-      let lastFolder:any = '';
-      //create location
-      loc.map((folder) => {
-        //! regex doesn't work rn
-        if (folder.match(new RegExp(/([aA-zZ]+)/) )) {
-          console.log('normal folder');
-          designatedPath.push(folder);
-          depth++;
-        } else {
-          switch(folder) {
-            case '~':
-              break;
-            case '.':
-              break;
-            case '..':
-              //check relation of back folder
-              if (loc.indexOf(folder) == 0 || depth == 0) {
-                //save head for backwards traversal
-                //lastFolder = currentPath.at(-1);
-                currentPath.pop();
-                depth--;
-              } else {
-                designatedPath.pop();
-                depth--;
-              }
-              break;
-            case '':
-              break;
-            case ' ':
-              break;
-            default:
-              //designatedPath.push(folder);
-              break;
-          }
-
-        }
-      });
-      console.log(designatedPath);
-      //terrible way of doing this, but it works
-      let count = 0;
-      currentPath.forEach( (folder)=> {
-        count++;
-        if (count == 1) {
-          dirToDisplay = parsedFileTree[folder][0];
-        } else {
-          dirToDisplay = dirToDisplay[folder][0];
-        }
-        //if (!(depth < 0)) lastFolder = folder;
-        console.log(dirToDisplay);
-      });
-      count = 0;
-      designatedPath.forEach( (folder) => {
-        count++;
-        dirToDisplay = dirToDisplay[folder][0];
-        lastFolder = folder;
-      });
-      //console.log(dirToDisplay)
-      const fullPath = currentPath.concat(designatedPath).join('/');
-      console.log('Inspecting dir: ' + fullPath);
-      
-      //get keys for string 
-      let contents:string[] = [];
-      if (lastFolder.length === 0) lastFolder = currentPath.at(-1);
-      let maparr = (dirToDisplay[lastFolder] === undefined) ? Object.keys(dirToDisplay) : Object.keys(dirToDisplay[lastFolder][0]); 
-      maparr.forEach((key) => { contents.push(key); });
-      console.log(contents);
-
-      return [dirToDisplay, fullPath, contents];
-    }
+    
     
     useEffect(() => {
       resetTerminal();
+
       pushToHistory(<>
         <SessionMessage />
           <div style={{fontSize: 20}}>This terminal contains <span style={{color: 'yellow'}}><strong>HTML</strong></span>. Awesome, right?</div>
           <br/>
-          <div>Enter help for prompt help. To turn statistics on, use stats().</div>
+          <div>You can write: start or alert , to execute some commands.</div>
         </>
       );
     }, []);
@@ -248,30 +174,123 @@ export function TerminalRunner() {
       },
       //head of dir will always be the last folder
       'ls' :  (input:string) => {
+        const getDirectoryContents:any = (dir:string) => {
+          
+          let loc = dir.trim().split('/');
+
+          let depth = 0;
+
+          let currentPath: string[] = userLocation.abs.split('/');
+          let designatedPath: string[] = [];
+          let dirToDisplay:any;
+
+          let lastFolder:string = '';
+          //create location
+          loc.map((folder) => {
+            //! regex doesn't work rn
+            if (folder.match(new RegExp(/([aA-zZ]+)/) )) {
+              console.log('normal folder');
+              designatedPath.push(folder);
+              depth++;
+            } else {
+              switch(folder) {
+                case '~':
+                  break;
+                case '.':
+                  break;
+                case '..':
+                  //check relation of back folder
+                  if (loc.indexOf(folder) == 0 || depth == 0) {
+                    //save head for backwards traversal
+                    lastFolder = currentPath.at(-1);
+                    currentPath.pop();
+                    depth--;
+                  } else {
+                    designatedPath.pop();
+                    depth--;
+                  }
+                  break;
+                case '':
+                  break;
+                case ' ':
+                  break;
+                default:
+                  //designatedPath.push(folder);
+                  break;
+              }
+
+            }
+          });
+          console.log(designatedPath);
+          //terrible way of doing this, but it works
+          let count = 0;
+          currentPath.forEach( (folder)=> {
+            count++;
+            if (count == 1) {
+              dirToDisplay = parsedFileTree[folder][0];
+            } else {
+              if (currentPath.length - 1 === currentPath.indexOf(folder)) dirToDisplay = dirToDisplay[folder][0];
+            }
+            if (depth > -1) lastFolder = folder;
+            console.log(dirToDisplay);
+          });
+          count = 0;
+          
+          designatedPath.map( (str) => {
+            if (str.match(/[.]+|[ ]/gm) || str === '') return str;
+          }).forEach( (folder) => {
+            count++;
+            dirToDisplay = (folder.match(/[.]+|[ ]/gm) || folder === '') ? dirToDisplay : dirToDisplay[folder][0];
+            if (depth > -1) lastFolder = folder;
+            
+          });
+          console.log(dirToDisplay)
+          console.log('Inspecting dir: ' + currentPath.concat(designatedPath).join('/'));
+          //get keys for string 
+
+          let contents:string[] = [];
+          /**
+           * 
+          let map:Map<string, Object> = new Map(Object.entries(dirToDisplay));
+          let maparr:Object[] = new Array<Object>(Array.from(map)[0][1][0]);
+
+          if (lastFolder.length === 0) {
+            lastFolder = currentPath.at(-1);
+            
+          } 
+            let maparr = Object.keys(dirToDisplay[lastFolder][0]); 
+            
+          
+
+          maparr.forEach((key) => {
+            contents.push(key);
+          })
+          console.log(contents);
+
+          return [dirToDisplay, lastFolder, contents];
+          
+        }
+        //way of finding directory is inneficient as hell
+        //find alternative
+        const [output, outFolder, contents] = getDirectoryContents(input);
 
         try {
-          const [output, fullPath, contents] = getDirectoryContents(input);
 
           pushToHistory(
             <>
-              <div>
-                <div>
-                  <p className='terminal-text'>Displaying contents of: {fullPath}</p>
-                  {contents.map((value:any) => {
-                    const disp = (typeof value === 'undefined') ? '' : value;
-                    return (<div>{disp}</div>)
-                  })}
-                </div>
-              </div>
+            
+
+              {contents.map((value:any) => {
+                const disp = (typeof value === 'undefined') ? '' : value;
+                return (<div>{value}</div>)
+              })}
+
             </>
           )
         } catch (error) {
-          console.log(error);
-          pushToHistory( 
-            <>
-              <div><p className='terminal-text'>'{input}' isn't a directory.</p></div>
-            </>
-          )
+          console.log('Broken')
+          console.log(Object.values(output));
+          console.log(error)
         }
         
       },
@@ -295,17 +314,48 @@ export function TerminalRunner() {
 
       },
       'help' : async (input:string) => {
-        pushToHistory(help(input))
-      },
-      '': async () => {
-        pushToHistory(<><br /></>)
+        switch (input) {
+          case 'echo':
+            pushToHistory(
+              <>
+                <div><span className="command-highlight">echo</span>(args:<em className='type-highlight'>string</em>)</div>
+              </>
+            )
+            break;
+          default: 
+          let handleOptionClick = () => {
+            return null;
+          }
+          pushToHistory(
+            <>
+            <div className='help'>
+                <div className='heading'><strong>Terminal Help</strong></div>
+                <div>
+                  <span>Using the JFAC syslinOS shell v6.0.14 isn't especially difficult.<br/></span>
+                  <span>Call terminal commands and include parameters with "()" for example: <span className="standard codereference">echo(whatever)</span>.
+                        For more complex notation and parameter options, please refer to the prompt's section within the 
+                        <span className="standard emphasized"> below</span> scroll or use help flags. 
+                  </span>
+                </div>
+                <div>
+                  <span className='subheading'>Command list: </span>
+                  <span>echo, ls, save, help, displaymem, 
+                          alias, cd, pwd, clear, alert</span>
+  
+                </div>
+            </div>
+            </>
+          )
+            break;
+        }
       },
       default : async () => {
-        await pushToHistory (
-          <>
-            <br></br>
-          </>
-        )
+        await pushToHistoryWithDelay({
+          delay: 100, 
+          content: <>
+            
+          </> 
+        })
       }
     }), [pushToHistory]);
   
@@ -324,7 +374,7 @@ export function TerminalRunner() {
   
   export default TerminalRunner;
 
-
+*/
 
 
 
@@ -408,3 +458,5 @@ export function TerminalRunner() {
           console.log(dirToDisplay)
           console.log('Inspecting dir: ' + currentPath.concat(designatedPath).join('/'));
  */
+
+

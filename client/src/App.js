@@ -60,6 +60,8 @@ const App = () => {
           <Route path="/chapters" exact component={Chapters} />
           <Route path="/chapter1" exact component={Chapter1} />
           <Route path="/chapter4" exact component={Chapter4} />
+
+          
           
           <Route path="/gallery" exact component={() => <Redirect to="/posts"/>} />
           <Route path="/posts" exact component={Gallery} />

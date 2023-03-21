@@ -9,6 +9,8 @@ import Player from '../Player/Player';
 import Pagination from '../Pagination';
 import useStyles from './styles';
 
+
+
 import './home.css';
 import '../../assets/fonts/stylesheet.css';
 
@@ -16,6 +18,8 @@ import picture1 from '../../assets/img/illustrations/002.png';
 import picture2 from '../../assets/img/illustrations/far_off_01.png';
 import tokyoUpscale from '../../assets/img/illustrations/tokyo_upscale.jpg';
 import liveWallpaper from '../../assets/vid/live_wallpaper.mp4';
+
+import trainImage from '../../assets/img/illustrations/000043.1.png';
 
 import NewsBar from '../NewsBar/NewsBar';
 

@@ -69,11 +69,10 @@ export const Terminal = forwardRef(
        *   then check or none or ""
        * 
        */
-      console.log(input)
       let commandStack = memo.commandStack;
       let tokenizedInput = input.trim().split('(');
-      console.log(tokenizedInput);
       let commandTree = memo.commandTree;
+      console.log(`[PARSER] input tokenized: ${input} => ${tokenizedInput}`);
       if (commands?.[tokenizedInput[0]]) {
         console.log(`command found: ${tokenizedInput[0]}`);
         commandStack.push(tokenizedInput[0]);
@@ -100,7 +99,7 @@ export const Terminal = forwardRef(
       }
       
       commandStack.forEach((command) => {
-        console.log(`command popped: ${command}`);
+        console.log(`[PARSER]command popped: ${command}`);
         commandTree.command = [...commandTree.command, command];
       });
       //commandTree.command = commandStack[0].toLowerCase();
@@ -118,7 +117,7 @@ export const Terminal = forwardRef(
     const executeCommands = (input:any, step:number) => {
       let executionStep = step;
 
-      console.log(input);
+      console.log(`[EXECUTION] ${input}`);
         var commandToExecute = commands?.[input.toLowerCase()];
         if (commandToExecute) {
           commandToExecute?.(null);

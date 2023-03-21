@@ -16,7 +16,6 @@ import '../../assets/fonts/stylesheet.css';
 
 const Admin = () => {
     const classes = useStyles();
- 
     const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch();
     const history = useHistory();

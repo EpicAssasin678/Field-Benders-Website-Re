@@ -41,6 +41,11 @@
                             "name" : "operations_list.txt",
                             "type" : "text",
                             "path" : "./"
+                        },
+                        "operation_tempest_map.hvf" : {
+                            "name" : "operation_tempest_map.hvf",
+                            "type" : "3D",
+                            "path" : "../../../assets/3dobjects/tempestmap.glb"
                         }
                     }],
                     "Pictures" : [{

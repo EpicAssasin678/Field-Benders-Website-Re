@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {Terminal} from './Terminal';
 import {useTerminal} from './hooks';
-import Typography from '@material-ui/core/Typography';
+import { Typography } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import Home from '../../Home/Home';
 
@@ -10,9 +10,11 @@ import fileTree from './local/fileTree.json';
 import { InputContext } from './InputContext';
 import { parseJsonText } from 'typescript';
 import { help } from './Interfaces/Help/Help';
+import Viewer from './Interfaces/Viewer/Viewer';
 
 //TODO change all initialized values for term to be handled by a ref, only loaded if changed 
 export function TerminalRunner() {
+  console.log('Rendering terminal')
     const {
       history,
       terminalRef,
@@ -24,22 +26,23 @@ export function TerminalRunner() {
     
     //const input = useContext(InputContext);
     //create temp variables for simulated directory and user system
-    var workingDirectory:any;
+    //var workingDirectory:any;
     const fileTreeStr = JSON.stringify(fileTree);
     //var parsedFileTree:Map<string, any> = new Map(Object.entries(JSON.parse(fileTreeStr)));
     const parsedFileTree = JSON.parse(fileTreeStr);
 
-    console.log(parsedFileTree);
-    console.log(JSON.parse(fileTreeStr));
-    console.log(new Map(Object.entries(JSON.parse(fileTreeStr))));
-    
+    //console.log(parsedFileTree);
+    //console.log(JSON.parse(fileTreeStr));
+    //console.log(new Map(Object.entries(JSON.parse(fileTreeStr))));
+
+
 
     var user = ['admin'];
     var userLocation = {
       rel: '~',
       abs: `system/Home/Users/${user[0]}`
     }
-
+    
     const changeDirectory = (absArr: string[]) => {
       let dir:any;
       absArr.forEach((folder:string) => {
@@ -49,14 +52,16 @@ export function TerminalRunner() {
         } else {
           dir = dir[folder][0];
         }
-
+        
         console.log(dir);
       });
       return dir;
     }
-    workingDirectory = changeDirectory(userLocation.abs.split('/'));
-    console.log(workingDirectory)
+    //workingDirectory = changeDirectory(userLocation.abs.split('/'));
     
+    const [workingDirectory, changeWorkingDirectory] = useState(changeDirectory(userLocation.abs.split('/')));
+    console.log(workingDirectory)
+
     var userDetails = [user, '@', userLocation.rel,];
     let date = new Date().toUTCString().split(' ');
     const session_stamp = date.slice(1,-1).map( (string) => {
@@ -181,6 +186,8 @@ export function TerminalRunner() {
       return [dirToDisplay, fullPath, contents];
     }
     
+    const [promptLabel, changePromptLabel] = useState(`[ ${session_stamp[3].split(':').join('.')}@${userDetails[0]} ] ${userDetails[2]}$`);
+    
     useEffect(() => {
       resetTerminal();
       pushToHistory(<>
@@ -232,9 +239,28 @@ export function TerminalRunner() {
           return input;
         }) 
       },
-      'cd' : async () => {
-        await pushToHistory( 
+      'cd' : async (input:string) => {
+        const [newdir, userloc, out] = getDirectoryContents(input);
+        userLocation.abs = userloc;
+        if(userLocation.abs.indexOf(user[0])/userLocation.abs.length < 0.40 ) {
+          userLocation.rel = userLocation.abs.split(user[0])[0] + "/~";
+        } else {
+          userLocation.rel = "~" + userLocation.abs.split(user[0])[1];
+        }
+        changePromptLabel(`[ ${session_stamp[3].split(':').join('.')}@${userDetails[0]} ] ${userLocation.rel}$`);
+        changeWorkingDirectory(newdir);
+      },
+      'prd' : async () => {
+        pushToHistory (
           <>
+            <div className="terminal__line">{userLocation.rel}</div>
+          </>
+        )
+      },
+      'pwd' : async () => {
+        await pushToHistory (
+          <>
+            <div className='terminal__line'>{userLocation.abs}</div>
           </>
         )
       },
@@ -292,7 +318,10 @@ export function TerminalRunner() {
         )
       },
       'save' : async () => {
-
+        
+      },
+      'view' : async (path: string) => {
+        pushToHistory(<Viewer objectPath={path}/>)
       },
       'help' : async (input:string) => {
         pushToHistory(help(input))
@@ -315,7 +344,7 @@ export function TerminalRunner() {
           memory={outputMemory}
           history={history}
           ref={setTerminalRef}
-          promptLabel={<>{`[ ${session_stamp[3].split(':').join('.')}@${userDetails[0]} ] ${userDetails[2]}$`}</>}
+          promptLabel={<>{promptLabel}</>}
           commands={commands}
         />
       </div>

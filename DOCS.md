@@ -260,3 +260,100 @@ This match pattern is the betta for what I want for the prompt parser.
 
     [aA-zZ]+[[ -]|[(]]["']
 
+
+
+## 3/22/23 Creating the new dev environment and gearing up for a proper netlify deployment
+There are now a couple of large improvements I need to make and these require me changing this repo in a large way. One issue is with 3DObjects, which as of right now aren't usable 
+due to the heavily inflated dependancy tree. Additionally, because of the outdated and 
+legacy peer dependancies, this application has become far too heavy for what it should be. As 
+it stands my node_modules are past 1.16GB. To make this production ready as I always intended,
+I need to migrate to a better set of libraries. This means also migrating to a Vite based system. 
+
+In order, here's what needs to change:
+> Change dev environment to Vite+ts
+> Change dev dependencies and change Google Auth system
+> Update npm modules 
+> Configure ESLint
+
+``
+mern-stack-client@0.1.0 E:\Documents\Field-Benders-Website-Re\client
+├── @material-ui/core@4.12.4
+
+├── @material-ui/icons@4.11.3
+
+├── @material-ui/lab@4.0.0-alpha.61
+
+├── @react-three/drei@9.58.1
+
+├── @react-three/fiber@8.12.0
+
+├── @redux-devtools/core@3.13.1
+
+├── @redux-devtools/dock-monitor@1.4.2
+
+├── @redux-devtools/log-monitor@2.3.2
+
+├── @testing-library/jest-dom@4.2.4
+
+├── @testing-library/react@9.5.0
+
+├── @testing-library/user-event@7.2.1
+
+├── axios@0.19.2
+
+├── bindings@1.5.0 extraneous
+
+├── eslint-config-airbnb@18.2.1
+
+├── eslint-plugin-import@2.27.5
+
+├── eslint-plugin-jsx-a11y@6.7.1
+
+├── eslint-plugin-react-hooks@4.6.0
+
+├── eslint-plugin-react@7.32.2
+
+├── file-uri-to-path@1.0.0 extraneous
+
+├── jwt-decode@3.1.2
+
+├── material-ui-chip-input@1.1.0
+
+├── moment@2.29.4
+
+├── nan@2.17.0 extraneous
+
+├── react-dom@16.14.0
+
+├── react-file-base64@1.0.3
+
+├── react-google-login@5.2.2
+
+├── react-redux@7.2.9
+
+├── react-router-dom@5.3.4
+
+├── react-scripts@3.4.1
+
+├── react@16.14.0
+
+├── redux-thunk@2.4.2
+
+├── redux@4.2.1
+
+├── three-stdlib@2.21.8
+
+├── three@0.150.1
+
+└── typescript@4.9.5
+``
+
+
+    "@redux-devtools/core": "^3.9.0",
+    "@redux-devtools/dock-monitor": "^1.4.0",
+    "@redux-devtools/log-monitor": "^2.3.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0"

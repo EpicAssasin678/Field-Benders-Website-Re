@@ -337,8 +337,7 @@ export function TerminalRunner() {
           //console.log(item);
 
           console.log(`[VIEW] details: name: ${item['name']} path: ${item["path"]} type: ${item["type"]}`)
-            
-          pushToHistory(
+            pushToHistory(
               <Viewer item={item} />
             )
           } catch  {

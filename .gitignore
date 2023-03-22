@@ -10,3 +10,5 @@ client/assets/img
 #private files
 server/.env
 server/cfg.js
+
+prevpackagelock.json

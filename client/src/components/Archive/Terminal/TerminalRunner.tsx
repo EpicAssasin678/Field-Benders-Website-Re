@@ -107,6 +107,10 @@ export function TerminalRunner() {
       }
     };
 
+    function displayError (message:string) {
+      pushToHistory(<><div><p className="terminal-text"><span className="error_header">ERROR</span>{message} </p></div></>)
+    }
+
     const getDirectoryContents:any = (dir:string) => {
           
       let loc = dir.trim().split('/');
@@ -178,6 +182,7 @@ export function TerminalRunner() {
       
       //get keys for string 
       let contents:string[] = [];
+      
       if (lastFolder.length === 0) lastFolder = currentPath.at(-1);
       let maparr = (dirToDisplay[lastFolder] === undefined) ? Object.keys(dirToDisplay) : Object.keys(dirToDisplay[lastFolder][0]); 
       maparr.forEach((key) => { contents.push(key); });
@@ -321,7 +326,24 @@ export function TerminalRunner() {
         
       },
       'view' : async (path: string) => {
-        pushToHistory(<Viewer objectPath={path}/>)
+        //test if the item was a directory or not
+        console.log(`Testing for validity.`);
+        try {
+          const pathArr = path.split('/');
+          //let's assume our input is correct
+          console.log(pathArr.length);
+          const item = (pathArr.length > 1) ? getDirectoryContents(userLocation.abs)[pathArr[-1]] : getDirectoryContents('./')[0][path];
+          //console.log(workingDirectory);
+          //console.log(item);
+
+          console.log(`[VIEW] details: name: ${item['name']} path: ${item["path"]} type: ${item["type"]}`)
+            
+          pushToHistory(
+              <Viewer item={item} />
+            )
+          } catch  {
+            displayError(' Invalid input, either the given input is a directory or an unsupported file.');
+        }
       },
       'help' : async (input:string) => {
         pushToHistory(help(input))

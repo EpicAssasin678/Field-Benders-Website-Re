@@ -7,6 +7,11 @@ export type TerminalPushToHistoryWithDelayProps = {
   delay?: number;
 };
 
+export type ViewableItem = {
+  type: '3D' | 'text' | 'text/encrypted';
+  path: string;
+}
+
 
 export type TerminalCommands = {
   [command: string ]: () => void ;

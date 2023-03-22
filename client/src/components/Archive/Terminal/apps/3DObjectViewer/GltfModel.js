@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useLoader, useFr } from '@react-three/fiber';
+import { useLoader, useFrame } from '@react-three/fiber';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
 

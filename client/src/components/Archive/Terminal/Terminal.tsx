@@ -130,6 +130,8 @@ export const Terminal = forwardRef(
             if (commandToExecute) {
               let commandOutput = commandToExecute?.(parsedInput.args[0]);
               console.log(commandOutput);
+              //if (typeof(commandOutput) === undefined) throw new Error("Output of command promise is undefined.")
+              
               //if there is still more left to execute
               if (parsedInput.command.length > 1) {
                 //remove top, set arg to recent output

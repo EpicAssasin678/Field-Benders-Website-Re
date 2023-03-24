@@ -10,8 +10,16 @@ import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 import './appbar.css';
 
+/**
+ * Navagition bar for the website 
+ * @param {*} props 
+ * @returns 
+ */
 const Navbar = (props) => {
+  console.log(`Navbar mounted`);
+
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const patreonLink = 'https://patreon.com/fieldbenders?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link';
   
   const dispatch = useDispatch();
   const location = useLocation();
@@ -25,8 +33,6 @@ const Navbar = (props) => {
 
     setUser(null);
   };
-
-  
 
   useEffect(() => {
     const token = user?.token;
@@ -48,19 +54,13 @@ const Navbar = (props) => {
 
       
       <Button className={classes.brandContainer} component={Link} to="/chapters">chapters</Button>
-      <Button className={classes.brandContainer} component={Link} to="/archive">the_archive</Button>
+      <Button className={classes.brandContainer} component={Link} to="/archive">archive</Button>
       <Button className={classes.brandContainer} component={Link} to="/about">about</Button>
       <Button className={classes.brandContainer} component={Link} to="/gallery">Gallery</Button>
-
+      <Button className={classes.brandContainer} component={Link} to="/archive/articles">Articles</Button>
+      <Button className={classes.brandContainer} component={Link} to="/archive/terminal">Terminal</Button>
+      <Button className={classes.brandContainer} href={patreonLink}>Patreon</Button>
       
-      {window.location.href.match("((chapter):*\d)")==true ? (
-        <Button>Otherwise we don't show a thing</Button>
-      ) : (
-        <Typography>Control Panel if we're reading</Typography>
-      )
-         
-        
-      }
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>

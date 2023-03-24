@@ -10,7 +10,6 @@ import Pagination from '../Pagination';
 import useStyles from './styles';
 
 
-
 import './home.css';
 import '../../assets/fonts/stylesheet.css';
 
@@ -22,6 +21,7 @@ import liveWallpaper from '../../assets/vid/live_wallpaper.mp4';
 import trainImage from '../../assets/img/illustrations/000043.1.png';
 
 import NewsBar from '../NewsBar/NewsBar';
+import Navbar from '../Navbar/Navbar';
 
 
 
@@ -42,7 +42,6 @@ const Home = () => {
     return (
 
       <Grow in>
-        
         <Grid container className={`${classes.gridContainer} `}  direction={'row'} >
 
           <Grid item lg={8} className={`${classes.mainContentItem}`}>

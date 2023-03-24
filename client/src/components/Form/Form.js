@@ -9,12 +9,16 @@ import { createPost, updatePost } from '../../actions/posts';
 import useStyles from './styles';
 
 const Form = ({ currentId, setCurrentId }) => {
+  
   const [postData, setPostData] = useState({ title: '', message: '', tags: [], selectedFile: '' });
   const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
   const history = useHistory();
+
+  //! Netlify env variable 
+  const authorizedPosterValue = process.env.AUTHORIZED_CONTENT_POSTER;
 
   const clear = () => {
     setCurrentId(0);
@@ -38,7 +42,8 @@ const Form = ({ currentId, setCurrentId }) => {
     }
   };
 
-  if (!user?.result?.name) {
+  //!Checks also for Netlify env variable
+  if (!(user?.result?.email === authorizedPosterValue)) {
     return (
       <Paper className={classes.paper} elevation={6}>
         <Typography variant="h6" align="center">

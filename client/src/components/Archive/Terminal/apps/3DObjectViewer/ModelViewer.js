@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "./OrbitControls/OrbitControls";
+import { OrbitControls } from "@react-three/drei/core";
 import GltfModel from "./GltfModel";
 
 

@@ -82,6 +82,10 @@ TYPING ANIMATION
     to { border-color: rgb(0, 0, 0); }
 }
 
+.blink-effect {
+    animation: textblink 1s infinite;
+}
+
 
 .typewriter-effect  {
     overflow: hidden;

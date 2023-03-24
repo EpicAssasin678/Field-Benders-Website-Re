@@ -1,4 +1,4 @@
-import { AUTH } from '../constants/actionTypes';
+import { AUTH, ADMINAUTH } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
 export const signin = (formData, router) => async (dispatch) => {
@@ -11,6 +11,7 @@ export const signin = (formData, router) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+
 };
 
 export const signup = (formData, router) => async (dispatch) => {
@@ -24,3 +25,15 @@ export const signup = (formData, router) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const signAdminIn = (formData, router) => async (dispatch) => {
+  try {
+    console.log('signAdminIn action called');
+    console.log(formData);
+    const { data } = await api.signAdminIn(formData);
+    console.log(data);
+    dispatch({ type: ADMINAUTH, data });
+  } catch (error) {
+    console.log(error);
+  }
+}

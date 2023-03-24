@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Container } from '@material-ui/core';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 import Archive from './components/Archive/Archive';
 import Admin from './components/Admin/Admin';
@@ -19,6 +19,9 @@ import Chapter4 from './assets/chapters/Chapter4';
 
 import Footer from './components/Footer/Footer';
 import Chapter from './components/Chapters/Chapter/Chapter';
+import TerminalRunner from './components/Archive/Terminal/TerminalRunner';
+import Articles from './components/Archive/Articles/Articles';
+
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -44,9 +47,11 @@ const App = () => {
     return {innerWidth, innerHeight};
   }
 
+  
   return (
     <BrowserRouter>
       <Container maxWidth="xl" className="main-app-container">
+        {}
         <Navbar />
         <Switch>
           <Route path="/admin" exact component={Admin}/>
@@ -60,8 +65,6 @@ const App = () => {
           <Route path="/chapters" exact component={Chapters} />
           <Route path="/chapter1" exact component={Chapter1} />
           <Route path="/chapter4" exact component={Chapter4} />
-
-          
           
           <Route path="/gallery" exact component={() => <Redirect to="/posts"/>} />
           <Route path="/posts" exact component={Gallery} />
@@ -69,7 +72,11 @@ const App = () => {
           <Route path="/posts/:id" exact component={PostDetails} />
           <Route path={['/creators/:name', '/tags/:name']} component={CreatorOrTag} />
           
+
           <Route path="/archive" exact component={Archive} />
+          <Route path="/archive/articles" exact component={Articles} />
+          <Route path="archive/terminal" exact component={TerminalRunner}/>
+
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/home" />)} />
         </Switch>
         <Footer />

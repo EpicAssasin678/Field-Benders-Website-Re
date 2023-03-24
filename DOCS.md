@@ -357,3 +357,26 @@ mern-stack-client@0.1.0 E:\Documents\Field-Benders-Website-Re\client
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0"
+
+
+``
+
+
+## 3/23/23 Big Things Ahead
+One of the greatest reasons I'm happy about this project this far is that I am able to make this site finally public. I can't express how happy I am at the prospect of this! Here are some features that I still want to implement in the future and need to be for the best release:
+
+1. Adding pagination to the home screen news bar component 
+2. Adding pagination between chapters
+3. Adding actual reading capabilities to the chapter reader 
+4. Creating the archive dashboard and adding some kind of help to the chapter reader, the terminal, and the article 3D viewer
+5. 3D viewer for the actual models I import 
+6. A live background, rendered conditionally upon the home page
+7. 3D backgorunds 
+8. Proper animations within the text screen 
+
+Of course this list is quite exhaustive and 5 and 7 aren't all that important to me, but the reader is definitely. Especially considering I am using an admin panel in the future, that needs to be complete. 
+
+
+Todays round of work will be the following: 
+1. Creating admin panels 
+2. Finishing about section

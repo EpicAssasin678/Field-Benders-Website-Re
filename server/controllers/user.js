@@ -7,13 +7,14 @@ const secret = 'test';
 
 
 export const signin = async (req, res) => {
+  console.log(req.body);
   const { email, password } = req.body;
 
   try {
     const oldUser = await UserModal.findOne({ email });
 
     if (!oldUser) return res.status(404).json({ message: "User doesn't exist" });
-
+    console.log(oldUser);
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
 
     if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });

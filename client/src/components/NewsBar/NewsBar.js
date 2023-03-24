@@ -39,7 +39,7 @@ const NewsBar = () => {
         <>
         <Grow in>
             <Grid container direction={'row'}  className={classes.newsBar} justifyContent='center'>
-                <Paper elevation={4} className={[classes.newsBarBackDrop, 'newsbar']} md={4} lg={4}>
+                <Paper elevation={4} className={[classes.newsBarBackDrop, 'newsbar']} >
                     <Grid item>
                         <Typography variant='h3' className={`font-hacked ${classes.newsBarTitle} white`}>news_from_the_front</Typography>
                         <NewsPosts 

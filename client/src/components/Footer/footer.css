@@ -4,6 +4,7 @@
 
     
     border-radius: 6px;
+    box-shadow: 1px 1px 1px 1px black;
     
 }
 
@@ -18,6 +19,20 @@
         margin-right: 0px;
     }
 }
+
+.patreon-icon {
+    max-width: 26px;
+}
+
+.paypal-icon {
+    max-width: 26px;
+}
+
+.footer-text {
+    align-self: center;
+    
+}
+
 
 /**
 *background-color: var(--primary_yellow) !important;

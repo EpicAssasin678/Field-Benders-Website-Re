@@ -31,7 +31,6 @@ const NewsPosts = ({ setCurrentId, postStyleOptions={body: '', title: '', subtit
     //console.log(isLoading);
     
     return (
-        
         isLoading ? <LinearProgress /> : (
             <Grid container alignItems='stretch' spacing={3}>
                 {newsPosts?.map((newsPost) => (

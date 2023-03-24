@@ -11,7 +11,7 @@
         {
             "name": "Soma Area",
             "path": "./img/Chapter01/0005.png",
-            "alt" : "Soma Base",
+            "alt" : "Snapshot of Soma Base area's surroundings, the village itself. White and purple lightning is commonplace in that particular area of Honshu. On a rare occasion, a large group of Neon may float in the area allowing for the infamous red lightning.",
             "type": "image",
             "serverSide": false,
             "description": "Snapshot of Soma Base area's surroundings, the village itself. During a storm."
@@ -19,10 +19,10 @@
         {
             "name": "Surrounding Honshu",
             "path": "../../assets/img/illustrations/004.png",
-            "alt" : "Just some random alt text",
+            "alt" : "Surroundings of Honshu",
             "type": "image",
             "serverSide": false,
-            "description": "Snapshot of Soma Base area's surroundings, the village itself. During a storm."
+            "description": "Snapshot of Soma Base area's surroundings, the village itself."
         }
     ]
 }

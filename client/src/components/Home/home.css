@@ -15,6 +15,16 @@
 
 }
 
+@media screen and (max-width: 640px) {
+    .large-container {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        
+    }
+}
+    
+
 /**
 #background-image {
     width: inherit;

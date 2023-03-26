@@ -16,7 +16,6 @@ const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
   const history = useHistory();
-
   //! Netlify env variable 
   const authorizedPosterValue = process.env.AUTHORIZED_CONTENT_POSTER;
 
@@ -43,7 +42,9 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   //!Checks also for Netlify env variable
-  if (!(user?.result?.email === authorizedPosterValue)) {
+  console.log('[ENV VARIAIBLE] Authorized poseter value: ', authorizedPosterValue);
+  console.log(user)
+  if (user?.result?.email != authorizedPosterValue || !user?.result?.name) {
     return (
       <Paper className={classes.paper} elevation={6}>
         <Typography variant="h6" align="center">

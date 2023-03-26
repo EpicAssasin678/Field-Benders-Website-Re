@@ -52,11 +52,11 @@ export default makeStyles((theme) => ({
     
     [theme.breakpoints.down('xs')]: {
       minWidth: '50%',
-      minHeight: "100%"
+      minHeight: "50%"
     },
     [theme.breakpoints.down('md')]: {
       minWidth: '50%',
-      minHeight: "100%"
+      minHeight: "50%"
     }
   },
   imageForDesktopOnly: {

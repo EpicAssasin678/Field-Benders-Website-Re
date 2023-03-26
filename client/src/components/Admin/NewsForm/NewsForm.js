@@ -12,6 +12,21 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
+/**
+ * 
+ * Without additional information on what the error message is, it is difficult to determine the exact cause of the error. However, here are a few potential issues that could cause an error:
+
+useStyles hook: The useStyles hook is not provided in the code snippet, so it is possible that the error is caused by a missing import or implementation of this hook.
+
+createNewsPost or getNewsPosts action: The createNewsPost and getNewsPosts actions are not defined in the code snippet, so it is possible that the error is caused by a missing import or implementation of these actions.
+
+InputAdornment: The InputAdornment component in the code snippet is not wrapped in a FormControl component, which is necessary for it to function properly.
+
+Input component: The Input component in the code snippet has an incorrect startAdornment prop. The startAdornment prop should be an object that contains a component key that maps to the InputAdornment component.
+
+These are just a few potential issues that could cause an error in the code snippet. It would be helpful to have more information on the specific error message in order to identify the exact cause of the error.
+ */
+
 const NewsForm = () => {
     const classes = useStyles();
 
@@ -67,8 +82,8 @@ const NewsForm = () => {
 
                         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                             <Typography variant='h6'>{currentId ? `Editing News Post "${newsPost.title}" from ${newsPost.date}` :  'Creating a News Post'}</Typography>
-                            <TextField name="title" variant="outlined" label="Title" fullwidth value={newsPostData.title} onChange={(e) => setNewsPostData({...newsPostData, title: e.target.value })} />
-                            <TextField name="information" variant="outline" label='Information' fullwidth value={newsPostData.information} onChange={(e) => setNewsPostData({...newsPostData, information: e.target.value})}/>
+                            <TextField name="title" variant="outlined" label="Title"  fullWidth value={newsPostData.title} onChange={(e) => setNewsPostData({...newsPostData, title: e.target.value })} />
+                            <TextField name="information" variant="outline" label="Information" fullWidth  value={newsPostData.information} onChange={(e) => setNewsPostData({...newsPostData, information: e.target.value})}/>
                             
                             <Input
                                 id="input-for-date"

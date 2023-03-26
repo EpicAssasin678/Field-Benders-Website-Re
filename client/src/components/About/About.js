@@ -31,13 +31,13 @@ const About = () => {
         <Container className={classes.Container}>
             
             <Typography className='font-hacked' variant='h1' xs={12} align="left">About the Site</Typography>
-            <Typography className='font-consolas' variant='body1' >This site was created out of a personal passion and desire to feature my installments of a novel into a format
-            that is more distributeable, and immersive. A traditional ebook doesn't hold the same gravity as an interactive web novel does, therefore I'm preferential to visual aid and 
+            <Typography className='' variant='body1' >This site was created out of a personal passion and desire to feature my installments of a novel in a format
+            that is more distributable, and immersive. A traditional ebook doesn't hold the same gravity as an interactive web novel does, therefore I'm preferential to visual aid and 
             auditory aid. I know that a normal ebook would allow you to read the same content, but out of sympathy for those of you with visualization issues like me, I wanted this world
-            to still come across to you as vividly as it did in my dreams. Because I have spent so much time into this project in the last three months, I would like to document my stylistic 
+            to still come across to you as vividly as it did in my dreams. Because I have spent so much time on this project in the last three months, I would like to document my stylistic 
             choices, as well as give credit for the tools I'm using.</Typography>         
             <Typography className='font-hacked black' variant='h4' xs={12} align="left">Typography</Typography>
-            <Typography className='typography-explanation-section font-consolas' align='left' variant='body' xs={12}>The following below shows the typography and the fonts used within the site,
+            <Typography className='typography-explanation-section ' align='left' variant='body' xs={12}>The following below shows the typography and the fonts used within the site,
             most are creative comomons.
             </Typography>
 
@@ -88,15 +88,15 @@ const About = () => {
 
           <Typography className='font-hacked black' variant='h3'>Free Policy</Typography>
           <Typography className='font-consolasregular' variant='body1'>
-            Due to the fact that at the moment, I have zero monetary gain from this site, donations and support is appreciated. Time, server uptime, domain registration,
-            and comission work as well as publishing cost are all out-of-pocket expenses that I have to pay for and  therefore money is tight. I'd love to improve the 
-            quality of this site and implement new and interesting features, but without the money and resources to justify it, I really can't. 
+          Due to the fact that at the moment, I have zero monetary gain from this site, donations and support are appreciated. Time, server uptime, domain registration, 
+          and commission work, as well as publishing cost, are all out-of-pocket expenses that I have to pay for and therefore money is tight. I'd love to improve the quality 
+          of this site and implement new and interesting features, but without the money and resources to justify it, I really can't.
           </Typography>
           <Typography className='font-hacked black' variant='h5'>How to Support the Project</Typography>
           <Typography className='font-consolasregular' variant='body1'>
             To support the project
-            on a monthly basis which is the preferred method of support, you can check the patreon link <a href='https://patreon.com/fieldbenders?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link'>here</a> or at 
-            the navbar/footer and subscribe. To make a single, one-time donation, use the you 
+            onthly, which is the preferred method of support, you can check the patreon link <a href='https://patreon.com/fieldbenders?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link'>here</a> or at 
+            the navbar/footer and subscribe. To make a single, one-time donation, you 
             can send money to my PayPal request link <a href='https://www.paypal.me/zacheryuporsky'>here</a> or anytime on the footer under the paypal link. 
           </Typography>
           

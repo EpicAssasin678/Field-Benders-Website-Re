@@ -108,7 +108,7 @@ export function TerminalRunner() {
     };
 
     function displayError (message:string) {
-      pushToHistory(<><div><p className="terminal-text"><span className="error_header">ERROR</span>{message} </p></div></>)
+      pushToHistory(<><div><p className="terminal-text"><span className="error-header">ERROR</span>{message} </p></div></>)
     }
 
     const getDirectoryContents:any = (dir:string) => {
@@ -197,7 +197,6 @@ export function TerminalRunner() {
       resetTerminal();
       pushToHistory(<>
         <SessionMessage />
-          <div style={{fontSize: 20}}>This terminal contains <span style={{color: 'yellow'}}><strong>HTML</strong></span>. Awesome, right?</div>
           <br/>
           <div>Enter help for prompt help. To turn statistics on, use stats().</div>
         </>
@@ -324,6 +323,14 @@ export function TerminalRunner() {
       },
       'save' : async () => {
         
+      },
+      'stats' : async () => {
+        pushToHistory(<>
+          <p className="terminal-text">Sorry, stats are unsupported for this system, please contact your JFAC network or base admin to request research support.</p>
+        </>)
+      },
+      'sudo' : async () => {
+        displayError(' Sudo is not allowed on this system, attempted elevation of privileges will be logged and reported to your JFAC network or base admin.');
       },
       'view' : async (path: string) => {
         //test if the item was a directory or not

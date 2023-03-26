@@ -52,15 +52,12 @@ const Home = () => {
 
               <Grid container justify="flex-start"  spacing={3} className={`${classes.gridContainer}`} >
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                  <Typography variant='body1' className={classes.textJustify}>In 2003, the Fukushima Daiichi Power Plant recieved a critical blow from a tidal
-                  tsunami created by a large earthquake. Shortly after, the facility went supercritical, forcing the Japanese Government to 
-                  shut down the area and evacuate en mass. Only a year after the explosion, those who tried to evacuate the estimated 
-                  "Fallout Area" were afflicted with a horrifying new disease known only as The Sickness. This area became abruptly unradioactive,
-                  and highly unstable with physics defying monstrosities appearing irregularly. 41 years later, technology has skyrocketed,
-                  global markets are in failure, and this area has expanded 365 miles in radius. Worst of all, those born in this area have 
-                  devoloped strange abilities and have been dubbed 'Field Benders' under a fledgeling government formed from the ruins of Honshu
-                  called JFAC. With a new force based within the heart of the area threatening to send nuclear warheads overseas, what can 
-                  operatives do in an attempt to stop them?</Typography>
+                  <Typography variant='body1' className={classes.textJustify}>In 2003, the Fukushima Daiichi Power Plant received a critical blow from a tidal tsunami created by a large earthquake. 
+                  Shortly after, the facility went supercritical, forcing the Japanese Government to shut down the area and evacuate en mass. Only a year after the explosion, those who tried to 
+                  evacuate the estimated "Fallout Area" were afflicted with a horrifying new disease known only as The Sickness. This area became abruptly non-radioactive, and highly unstable with 
+                  physics-defying monstrosities appearing irregularly. 41 years later, technology has skyrocketed, global markets are in failure, and this area has expanded 365 miles in radius. 
+                  Worst of all, those born in this area have developed strange abilities and have been dubbed 'Field Benders' under a fledgling government formed from the ruins of Honshu called 
+                  JFAC. With a new force based within the heart of the area threatening to send nuclear warheads overseas, what can operatives do in an attempt to stop them?</Typography>
                   </Grid>
                   <Grid item xs={12} sm={12} md={6} >
                       <img src={picture1} className={`${classes.image} ${classes.flexCenter}`} ></img>
@@ -72,18 +69,18 @@ const Home = () => {
               </Grid>
 
             <Typography variant='h3' className='font-hacked black'>A WORLD OF CHARACTERS</Typography>
-            <Typography variant='body1' className='black'>Delve deep into a lore rich world, explore it's many articles, pictures, and locations.
-              With over 250+ custom made pieces of content and more to come, the world of FIELD Benders is lake you can look at in one view, but swim in for 
-              days. Explore the various folk legends of 2044 Honshu, look at the destruction caused under the Anomaly, read the demonstrations of technology,
+            <Typography variant='body1' className='black'>Delve deep into a lore-rich world, and explore its many articles, pictures, and locations.
+              With over 250+ custom-made pieces of content and more to come, the world of FIELD Benders is a lake you can look at in one view, but swim in for 
+              days. Explore the various folk legends of 2044 Honshu, look at the destruction caused by the Anomaly, read the demonstrations of technology,
               and do more in FIELD Benders Web! While the stable version of the reader is in open alpha, all chapters provided are readable at your leisure.
-              This site is intended truly for desktop users, and reccomended for a fullscreen browse especially, but if you are using a mobile device don't 
-              sweat! This site hase you covered, most content is not only compatible with mobile—but is modified for a custom experience. Never worry about 
+              This site is intended truly for desktop users and is recommended for a fullscreen browse especially, but if you are using a mobile device don't 
+              sweat! This site has you covered, most content is not only compatible with mobile—but is modified for a custom experience. Never worry about 
               how you'll read again. 
             </Typography>
 
             <Typography variant='h3' className='font-hacked black'>FREE TO READ</Typography>
-            <Typography variant='body1' className='black'>Because of my personal beliefs when it comes to art, I would like to say that FIELD Benders and it's 
-              primary bulk of content will always remain free to read on this website. E-book will be an option soon in installments, when such event arises, 
+            <Typography variant='body1' className='black'>Because of my personal beliefs when it comes to art, I would like to say that FIELD Benders and its 
+              primary bulk of the content will always remain free to read on this website. The E-book will be an option soon in installments, when the such event arises, 
               please check back in for our Amazon book listing!
             </Typography>
             <Typography className='font-hacked black' variant='h3'>How to read this work.</Typography>

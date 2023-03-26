@@ -2,9 +2,10 @@
     margin-top: 5%;
     width: 100%;
 
-    
     border-radius: 6px;
     box-shadow: 1px 1px 1px 1px black;
+
+    display: flex;
     
 }
 
@@ -14,10 +15,59 @@
     margin-right: 20%;
 }
 
+.content-claim-section {
+    display: flex;
+}
+
 @media (min-width: 640) {
     .avatar {
-        margin-right: 0px;
+        margin-right: 0px !important;
+        
     }
+    .foorter-icon-section {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .footer {
+        margin-top: 5px;
+        height: fit-content !important;
+        margin-top: 0px;
+        flex-wrap: wrap;
+
+    }
+    .footer-text {
+        font-size: 3.5vw !important;
+        
+    }
+    .footer-icon-section {
+        margin-left: 0px !important;
+        margin-top: 0px !important;
+        align-items: center;
+    }
+    .jfac-logo {
+        max-width: 26px !important;
+    }
+    .footer-icon-outerelement {
+        /**removed due to the fact that there is no longer a div section
+        /**padding: 0px !important;*/
+    }
+    /**remove if you desire to */
+    .content-claim-section {
+        display: none !important;
+    }
+}
+
+
+.footer-icon-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.footer-icon {
+    max-width: 26px;
 }
 
 .patreon-icon {
@@ -30,7 +80,10 @@
 
 .footer-text {
     align-self: center;
-    
+}
+
+.small-screen-footer {
+    display: none;
 }
 
 

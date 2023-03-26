@@ -82,6 +82,12 @@ TYPING ANIMATION
     to { border-color: rgb(0, 0, 0); }
 }
 
+@keyframes losecursor {
+  from {border-right: .10em solid rgb(0, 0, 0);}
+  90% {border-right: .10em solid rgb(0, 0, 0);}
+  to {border-right: .10em solid transparent;}
+}
+
 .blink-effect {
     animation: textblink 1s infinite;
 }
@@ -100,7 +106,7 @@ TYPING ANIMATION
     animation-delay: 0s, 1s;
 }
 
-#typewriter-effect-temporary {
+.typewriter-effect-temporary {
     overflow: hidden;
     border-right: .10em solid rgb(0, 0, 0);
     white-space: nowrap;
@@ -108,6 +114,7 @@ TYPING ANIMATION
     width: 0;
     animation: 
         typing 1s steps(20, end) forwards,
+        losecursor 3s forwards,
         blink 1s 3s;
 
     animation-delay: 0s, 1s;
@@ -116,6 +123,8 @@ TYPING ANIMATION
 .typewriter-container {
     display : inline-block;
 }
+
+
 
 /**
 * CRT ANIMATIONS

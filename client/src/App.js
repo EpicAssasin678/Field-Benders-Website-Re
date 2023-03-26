@@ -14,13 +14,15 @@ import CreatorOrTag from './components/CreatorOrTag/CreatorOrTag';
 
 import About from './components/About/About';
 
+import Chapter from './components/Chapters/Chapter/Chapter';
 import Chapter1 from './components/Chapters/Chapter1/Chapter1';
+import Chapter2 from './components/Chapters/Chapter2/Chapter2';
 import Chapter4 from './assets/chapters/Chapter4';
 
 import Footer from './components/Footer/Footer';
-import Chapter from './components/Chapters/Chapter/Chapter';
 import TerminalRunner from './components/Archive/Terminal/TerminalRunner';
 import Articles from './components/Archive/Articles/Articles';
+import InProgress from './components/InProgress/InProgress';
 
 
 const App = () => {
@@ -63,8 +65,9 @@ const App = () => {
           <Route path="/about" exact component={About} />
 
           <Route path="/chapters" exact component={Chapters} />
-          <Route path="/chapter1" exact component={Chapter1} />
-          <Route path="/chapter4" exact component={Chapter4} />
+          <Route path="/chapters/chapter1" exact component={Chapter1} />
+          <Route path="/chapters/chapter2" exact component={Chapter2} />
+          <Route path="/chapters/chapter4" exact component={Chapter4} />
           
           <Route path="/gallery" exact component={() => <Redirect to="/posts"/>} />
           <Route path="/posts" exact component={Gallery} />
@@ -75,7 +78,7 @@ const App = () => {
 
           <Route path="/archive" exact component={Archive} />
           <Route path="/archive/articles" exact component={Articles} />
-          <Route path="archive/terminal" exact component={TerminalRunner}/>
+          <Route path="/archive/terminal" exact component={InProgress}/>
 
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/home" />)} />
         </Switch>

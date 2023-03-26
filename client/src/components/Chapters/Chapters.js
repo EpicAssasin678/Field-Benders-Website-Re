@@ -51,7 +51,7 @@ const Chapters = () => {
                 {chapters.map((value) => (
                   <ListItem key={value}>
                     
-                    <Button id={`button${chapters.indexOf(value)+1}`} component={Link} to={`/chapter${chapters.indexOf(value)+1}`}>
+                    <Button id={`button${chapters.indexOf(value)+1}`} component={Link} to={`/chapters/chapter${chapters.indexOf(value)+1}` }>
                       <FolderIcon className='chapterlist-icon '/>
                     </Button>
                   

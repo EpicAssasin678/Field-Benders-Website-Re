@@ -5,26 +5,20 @@ import ListItemIcon from '@material-ui/icons/ListOutlined';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import ControlPanel from './ControlPanel/ControlPanel';
-import useStyles from './styles';
+
+import useStyles from '../styles';
+
+import Chapter from '../../../assets/chapters/Chapter1';
+import ControlPanel from '../Chapter/ControlPanel/ControlPanel';
+
 import MediaMap from '../../../assets/json/maps/chapter1.json';
-import Chapter1 from '../../../assets/chapters/Chapter1';
+const Chapter2 = () => {
 
-//TODO create all chapters dynamically with this component, use lady loading to properly load correct component
-const Chapter = () => {
-
-    const location = useLocation();
-    console.log(location);
-    
-    
     const classes = useStyles();
-    const chapterNumber = location.pathname.toString().at(-1);
-    //const Chapter = React.lazy( () => import(`../../../assets/chapters/Chapter${chapterNumber}`));
-    //const Chapter = require(`../../../assets/chapters/Chapter${chapterNumber}`);
-    //const MediaMap = React.lazy(() => import(`../../../assets/json/maps/chapter${chapterNumber}`));
-    //const MediaMap = require(`../../../assets/json/maps/chapter${chapterNumber}`);
-    //const GeneratedChapter = React.lazy(() => import(`../../../assets/chapters/${chapterName}`))
-    console.log(MediaMap);
+    const [currentId, setCurrentId] = useState(0);
+    
+    
+    
     return (
         <Grow in>
             <Container >
@@ -38,6 +32,7 @@ const Chapter = () => {
 
                         <Paper elevation={3} className={classes.chapterPaper} >
                             <Chapter />
+                            
                         </Paper>
 
                     </Grid>
@@ -53,4 +48,4 @@ const Chapter = () => {
 
 }
 
-export default Chapter;
+export default Chapter2;

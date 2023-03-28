@@ -28,6 +28,7 @@ import InProgress from './components/InProgress/InProgress';
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
   console.log(process.env.DATABASE_SERVER_ADDRESS);
+  console.log(process.env.DATABASE_URL);
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   /**

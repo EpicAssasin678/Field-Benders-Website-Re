@@ -83,7 +83,7 @@ const NewsForm = () => {
                         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                             <Typography variant='h6'>{currentId ? `Editing News Post "${newsPost.title}" from ${newsPost.date}` :  'Creating a News Post'}</Typography>
                             <TextField name="title" variant="outlined" label="Title"  fullWidth value={newsPostData.title} onChange={(e) => setNewsPostData({...newsPostData, title: e.target.value })} />
-                            <TextField name="information" variant="outline" label="Information" fullWidth  value={newsPostData.information} onChange={(e) => setNewsPostData({...newsPostData, information: e.target.value})}/>
+                            <TextField name="information" variant="outlined" label="Information" fullWidth  value={newsPostData.information} onChange={(e) => setNewsPostData({...newsPostData, information: e.target.value})}/>
                             
                             <Input
                                 id="input-for-date"

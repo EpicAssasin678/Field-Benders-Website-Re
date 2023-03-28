@@ -2,9 +2,11 @@ import axios from 'axios';
 import * as dotenv from 'dotenv';
 dotenv.config({path: 'netlify.env'})
 
-const url = process.env.DATABASE_SERVER_ADDRESS || '34.125.227.140:27017';
+const url = process.env.DATABASE_SERVER_ADDRESS || 'http://34.125.227.140:27017';
 const API = axios.create({ baseURL: url });
+
 if(process.env.DATABASE_SERVER_ADDRESS) console.log(process.env.DATABASE_SERVER_ADDRESS);
+console.log(axios.prototype)
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {

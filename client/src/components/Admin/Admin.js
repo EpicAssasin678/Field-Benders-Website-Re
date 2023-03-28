@@ -53,9 +53,8 @@ const Admin = () => {
 
   const handleChange = (e) => setForm({...form, [e.target.name]: e.target.value});
   
-  dispatch(getNewsPosts(1));
   if (admin) {
-    
+    dispatch(getNewsPosts(1));
     
     return (
       <Grow in>

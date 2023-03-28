@@ -25,9 +25,9 @@ const NewsPosts = ({ setCurrentId, postStyleOptions={body: '', title: '', subtit
     console.log(useStore().getState());
     console.log(new Date().toISOString());
     //console.log(isLoading);
-    console.log(`newsPosts array: ${newsPosts.toString()}`)
+    //if (!isLoading) console.log(`newsPosts array: ${newsPosts.toString()}`)
     //if (!newsPosts.length && !isLoading) return 'No news posts.';
-    console.log(isLoading);
+    //console.log(isLoading);
     //console.log(isLoading);
     
     return (

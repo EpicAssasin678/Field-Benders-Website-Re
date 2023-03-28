@@ -100,6 +100,7 @@ const About = () => {
             can send money to my PayPal request link <a href='https://www.paypal.me/zacheryuporsky'>here</a> or anytime on the footer under the paypal link. 
           </Typography>
           
+          
         </Container>
       </Grow>
     );

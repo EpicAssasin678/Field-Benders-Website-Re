@@ -1,8 +1,8 @@
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
     .newsbar {
         display: flex;
         width: 90vw;
-        margin-left: 0;
+        margin-left: 0 !important;
         align-self: center;
         justify-self: flex-start;
     }

@@ -1,4 +1,6 @@
 import axios from 'axios';
+import * as dotenv from 'dotenv';
+dotenv.config({path: 'netlify.env'})
 
 const url = process.env.DATABASE_SERVER_ADDRESS || 'http://localhost:27017';
 const API = axios.create({ baseURL: url });

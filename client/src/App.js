@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import * as dotenv from 'dotenv';
 
 import Archive from './components/Archive/Archive';
 import Admin from './components/Admin/Admin';
@@ -29,7 +30,10 @@ const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
   console.log(process.env.DATABASE_SERVER_ADDRESS);
   console.log(process.env.DATABASE_URL);
+  console.log(process.env);
   const [windowSize, setWindowSize] = useState(getWindowSize());
+
+
 
   /**
    useEffect(() => {

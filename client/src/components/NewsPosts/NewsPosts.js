@@ -18,7 +18,7 @@ const NewsPosts = ({ setCurrentId, postStyleOptions={body: '', title: '', subtit
     const dispatch = useDispatch();
     const classes = useStyles();
 
-    newsPosts.map((newsPost) => {
+    if (newsPosts) newsPosts.map((newsPost) => {
         console.log(newsPost);
     })
     

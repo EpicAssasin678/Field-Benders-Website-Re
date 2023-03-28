@@ -9,7 +9,8 @@ import userRouter from "./routes/user.js";
 import newsRouter from './routes/newsPost.js'; 
 import adminUserRouter from './routes/adminUser.js';
 
-import key from './cfg.js';
+import key  from './cfg.js';
+import { port } from './cfg.js';
 
 const app = express();
 
@@ -22,9 +23,10 @@ app.use("/user", userRouter);
 app.use('/news', newsRouter);
 app.use('/admin', adminUserRouter);
 
-const CONNECTION_URL = key;
+const CONNECTION_URL = process.env.MONGO_TOKEN || key;
 const PORT = process.env.PORT || 5000;
 
+//Configure deployment for GCP backend using app engine
 mongoose.connect(CONNECTION_URL)
-  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+  .then(() => app.listen(PORT, process.env.ENTRYPOINT || '0.0.0.0', () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));

@@ -13,3 +13,12 @@ Note: This project is under the Apache License, but the a good portion of conten
 ### Dependencies 
 
 nodemon
+
+### ENV VARIABLES
+#### server 
+MONGO_TOKEN = mongodb login token 
+ENTRYPOINT = basic entrypoint for server instance, follows IP address Ipv4 or Ipv6 depending on deployment config
+PORT = process port 
+#### client server 
+DATABASE_SERVER_ADDRESS = http/https address of the backend for REST calls
+

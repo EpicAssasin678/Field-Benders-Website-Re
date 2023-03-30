@@ -10,6 +10,8 @@ import './index.css';
 import './animations.css';
 
 import * as dotenv from 'dotenv';
+dotenv.config();
+
 
 const store = createStore(reducers, {}, compose(applyMiddleware(thunk)));
 

@@ -26,7 +26,7 @@
       "typescript": "^4.9.5"
     },
     "scripts": {
-      "start": "react-scripts --openssl-legacy-provider start ",
+      "start": "react-scripts --openssl-legacy-provider start set > .env",
       "start_current": "react-scripts start",
       "build": "react-scripts build && echo $CONTEXT > ./netlify-env.env",
       "build_netlify": "react-scripts build && echo $CONTEXT > ./netlify-env.env",

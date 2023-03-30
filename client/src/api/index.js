@@ -1,8 +1,14 @@
 import axios from 'axios';
 import * as dotenv from 'dotenv';
-dotenv.config({path: 'netlify.env'})
 
-const url = process.env.DATABASE_SERVER_ADDRESS || 'https://34.125.227.140:27017';
+
+dotenv.config({path: '../../.env'});
+
+//config = production points to render service
+const url = (process.env.NODE_ENV=== "development") ? 
+        process.env.DATABASE_SERVER_ADDRESS || 'https://34.125.227.140:27017' : 
+        process.env.DATABASE_SERVER_ADDRESS || 'https://fieldbendersweb-backend-router.onrender.com';
+
 const API = axios.create({ baseURL: url });
 
 if(process.env.DATABASE_SERVER_ADDRESS) console.log(process.env.DATABASE_SERVER_ADDRESS);
@@ -12,6 +18,7 @@ API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
     req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
   }
+
 
   return req;
 });

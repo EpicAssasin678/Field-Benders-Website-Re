@@ -380,3 +380,16 @@ Of course this list is quite exhaustive and 5 and 7 aren't all that important to
 Todays round of work will be the following: 
 1. Creating admin panels 
 2. Finishing about section
+
+
+### MongoDB HTTP Endpoints and Google Cloud App Engine 
+
+Right now backend deployment is hard and requires alot of strenuous coding. Three options I ahve identified ranking from order of most likely to use to least are: 
+1. Google cloud VM that acts as a http request server
+2. MongoDB HTTP Endpoint functions
+3. Google app engine 
+
+#### Google Cloud
+This is the solution I am using at the moment and proves to be obviously the most flexible. Because my front end deployent is on Netlify and is SSL certified, the rest of my external static endpoints need to be SSL certified. To make XMLHttpRequests from an HTTPS using site, the request endpoint must also be using HTTPS to transfer said resources. The only problem is that I don't have an idea on how to make this a possiblity without making another domain name and then creating the infastructure there. 
+
+As of right now, if I can figure out how to configure my google cloud VM to have an external IP that uses HTTPS and gets certified, that would be amazing. Unfortunately, that doesn't seem possible without a domain since certificate authorities only allow domain name registries and nothing else. 

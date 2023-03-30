@@ -13,6 +13,7 @@ import * as dotenv from 'dotenv';
 
 const store = createStore(reducers, {}, compose(applyMiddleware(thunk)));
 
+
 dotenv.config({path: './.env'});
 dotenv.config({path: './netlify.env'});
 console.log(process.env);

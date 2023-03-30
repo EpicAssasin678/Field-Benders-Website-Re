@@ -8,9 +8,6 @@ import userRouter from "./routes/user.js";
 import newsRouter from './routes/newsPost.js'; 
 import adminUserRouter from './routes/adminUser.js';
 
-import key  from './cfg.js';
-import { port } from './cfg.js';
-
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -25,7 +22,7 @@ app.use("/user", userRouter);
 app.use('/news', newsRouter);
 app.use('/admin', adminUserRouter);
 
-const CONNECTION_URL = process.env.MONGO_TOKEN || key;
+const CONNECTION_URL = process.env.MONGO_TOKEN;
 const PORT = process.env.PORT || 5000;
 
 //Configure deployment for GCP backend using app engine
